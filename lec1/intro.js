@@ -24,3 +24,22 @@ if (true) {
 
 console.log(10=="10");//yeh yaha pe sirf value dekh rhaa hai
 console.log(10==="10");//yaha pe vo data type bhi dekhega
+
+//objects= hote hai key values ke pair
+
+//let movies={};//empty object hai yeh
+
+let data={
+    name:"steve rogers",
+    place:"pitampura"
+
+};
+console.log(data.name);//object se name mangwaya
+console.log(data.place);//object se place mangwaya
+
+let key = "name";
+//data.key;
+// console.log( key );
+
+// bracket notation
+console.log(data[key]);
