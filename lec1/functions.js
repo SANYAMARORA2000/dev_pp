@@ -13,6 +13,6 @@ function sayhi(name)
 // let value = sayhi("Steve");
 // console.log(value);
 
-let value = sayhi();
-console.log( value );
-// console.log(sayHi);
+// let value = sayhi();
+// console.log( value );
+console.log(sayhi);
