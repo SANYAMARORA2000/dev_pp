@@ -1,1 +1,9 @@
-console.log("hi everyone")
+console.log("hi everyone");
+
+let a=10;
+let b=20;
+
+console.log(a);
+console.log(b);
+
+
