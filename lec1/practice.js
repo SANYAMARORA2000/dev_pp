@@ -31,7 +31,11 @@ let data={
 
 
     name:"sanyam",
-    place: "pitampura"
+    place: "pitampura",
+    data1 :{
+        name1: "Steve Rogers",
+        jagah: "Queens",
+    }
 };
 let key="name";
 console.log(data[key]);
@@ -56,16 +60,17 @@ let values=[
 console.log(values[3].name);
 
 
-// for(let key in data)
-// {
-//     console.log(key);
-// }
+for(let key in data)
+{
+    console.log(key);
+}
 
 
 
 
 
 //console.log()
+
 
 
 
