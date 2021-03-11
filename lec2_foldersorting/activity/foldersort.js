@@ -2,7 +2,7 @@ const fs= require("fs");
 const path = require("path");
 let extensions = require("./util");
 
-let folderpath="./Downloads"; 
+let folderpath="../../../"; 
 let extfolderpath;
 
 function checkfolder(extension)
