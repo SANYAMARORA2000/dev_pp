@@ -2,13 +2,13 @@ const fs= require("fs");
 const path = require("path");
 let extensions = require("./util");
 
-let folderpath="../../../PRACTICE_1"; 
+
 let extfolderpath;;
 
-function checkfolder(extension)
+function checkfolder(extension,folderpath)
 {
     //check if extension matches with anyfolder
-    extfolderpath=folderpath;
+    extfolderpath="../../../PRACTICE_1";
     //"/downloads"
     for(let key in extensions)
     {
@@ -16,7 +16,7 @@ function checkfolder(extension)
         if(extensions[key].includes(extension))
         {
             //string interpolation
-          extfolderpath=`${folderpath}/${key}`;
+          extfolderpath=`${extfolderpath}/${key}`;
           //"/downloads/Images"
           break;
         }
@@ -48,7 +48,7 @@ function sortfolder(folderpath)
     //get extension on each
     for(let i=0;i<content.length;i++)
     {
-      let isDirectory = fs.lstatSync(`${folderPath}/${content[i]}`).isDirectory();
+      let isDirectory = fs.lstatSync(`${folderpath}/${content[i]}`).isDirectory();
       if(isDirectory){
         console.log("It is a folder");
         sortfolder(`${folderpath}/${content[i]}`); "./Downloads/Audio"
@@ -57,7 +57,7 @@ function sortfolder(folderpath)
       {
         let extensionname=path.extname(content[i]);
         console.log(extensionname);
-        let extfolderexist=checkfolder(extensionname);
+        let extfolderexist=checkfolder(extensionname,folderpath);
         if(extfolderexist)
         {
           moveFile(content[i],folderpath);
@@ -71,6 +71,6 @@ function sortfolder(folderpath)
       
     }
 }
-sortfolder(folderpath);
+sortfolder("../../../PRACTICE_1");
 
 
