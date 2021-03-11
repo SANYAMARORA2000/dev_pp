@@ -2,7 +2,7 @@ const fs= require("fs");
 const path = require("path");
 let extensions = require("./util");
 
-let folderpath="../../../"; 
+let folderpath="../../../PRACTICE_1"; 
 let extfolderpath;
 
 function checkfolder(extension)
@@ -43,22 +43,32 @@ function createfolder()
 
 function sortfolder(folderpath)
 {
+  
     let content= fs.readdirSync(folderpath);
     //get extension on each
     for(let i=0;i<content.length;i++)
     {
-      let extensionname=path.extname(content[i]);
-      console.log(extensionname);
-      let extfolderexist=checkfolder(extensionname);
-      if(extfolderexist)
-      {
-        moveFile(content[i],folderpath);
+      let isDirectory = fs.lstatSync(`${folderPath}/${content[i]}`).isDirectory();
+      if(isDirectory){
+        console.log("It is a folder");
+        sortfolder(`${folderpath}/${content[i]}`); "./Downloads/Audio"
       }
       else
       {
-        createfolder();
-        moveFile(content[i],folderpath);
+        let extensionname=path.extname(content[i]);
+        console.log(extensionname);
+        let extfolderexist=checkfolder(extensionname);
+        if(extfolderexist)
+        {
+          moveFile(content[i],folderpath);
+        }
+        else
+        {
+          createfolder();
+          moveFile(content[i],folderpath);
+        }
       }
+      
     }
 }
 sortfolder(folderpath);
