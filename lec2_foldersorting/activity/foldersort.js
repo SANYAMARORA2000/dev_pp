@@ -3,7 +3,7 @@ const path = require("path");
 let extensions = require("./util");
 
 
-let extfolderpath;;
+let extfolderpath;
 
 function checkfolder(extension,folderpath)
 {
