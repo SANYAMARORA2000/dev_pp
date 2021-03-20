@@ -1,0 +1,10 @@
+[
+    {
+        "Issue Name": "Let's Encrypt script not running during deployment.",
+        "Issue Link": "https://github.com/Azure/azure-quickstart-templates/issues/8881"
+    },
+    {
+        "Issue Name": "ssh public key is not parsed by dsvm template",
+        "Issue Link": "https://github.com/Azure/azure-quickstart-templates/issues/8856"
+    }
+]
