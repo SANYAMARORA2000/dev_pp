@@ -281,5 +281,3 @@ function solveQuestion(qLink) {
 //   return warmupchallengespromise;
 
 // })
-
-
