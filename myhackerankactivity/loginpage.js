@@ -2,6 +2,8 @@ const puppeteer=require('puppeteer');
 const id = "kekimo4506@aramidth.com";
 const pw = "123456789AB";
 let tab;
+let pos;
+let gcode;
 
 
 let browseropenpromise=puppeteer.launch({headless:false,defaultViewport:null});
@@ -34,13 +36,10 @@ browseropenpromise.then(function(browser){
 })
 .then(function(){
 
-    let leaderboardclickpromise=waitandClick('.ui-btn.ui-btn-normal.ui-btn-large.ui-btn-primary.ui-btn-link.ui-btn-styled');
-    return leaderboardclickpromise;
+    let probsolveclickpromise=waitandClick('.ui-btn.ui-btn-normal.ui-btn-large.ui-btn-line-primary.ui-btn-link.ui-btn-styled');
+    return probsolveclickpromise;
 })
-.then(function(){
-    let nameclickpromise=waitandClick('.ui-btn.ui-btn-normal.playlist-card-btn.ui-btn-line-primary.ui-btn-link.ui-btn-styled');
-    return nameclickpromise;
-})
+
 .then(function(){
     let quespagewaitpromise=tab.waitForSelector(".js-track-click.challenge-list-item");
     return quespagewaitpromise;
@@ -74,8 +73,137 @@ browseropenpromise.then(function(browser){
 
         links.push(completeLinks);
     } 
-     solveQuestion(links[0]);
+   // console.log(links)
+     let quessolvedpromise=solveQuestion(links[1]);
+     quessolvedpromise.then(function(){
+         console.log("one question solved")
+     })
 })
+
+function pastecode()
+{
+    return new Promise(function(resolve,reject){
+        let problembuttonclick=tab.click('#tab-1-item-0');
+        problembuttonclick.then(function(){
+            let checkboxbuttonclick=waitandClick('.custom-input-checkbox');
+            return checkboxbuttonclick;
+        })
+
+        .then(function(){
+            let codetypepromise=tab.type('.custominput',gcode);
+            return codetypepromise;
+        })
+        .then(function(){
+            let controlpresspromise=tab.keyboard.down("Control");
+            return controlpresspromise;
+        })
+        .then(function(){
+            let Apresspromise=tab.keyboard.press("A");
+            return Apresspromise;
+        })
+        .then(function(){
+            let Xpresspromise=tab.keyboard.press("X");
+            return Xpresspromise;
+        })
+        .then(function(){
+            let clickpromise=tab.click('.monaco-scrollable-element.editor-scrollable.vs');
+            return clickpromise;
+        })
+        .then(function(){
+            let Apresspromise=tab.keyboard.press("A");
+            return Apresspromise;
+        })
+        .then(function(){
+            let Vpresspromise=tab.keyboard.press("V");
+            return Vpresspromise;
+        })
+        .then(function(){
+            let submitbuttonpromise=tab.click(' .pull-right.btn.btn-primary.hr-monaco-submit');
+            return submitbuttonpromise;
+        })
+        .then(function(){
+            resolve();
+        })
+        .catch(function(error){
+            reject(error)
+        })
+
+        
+
+    })
+}
+
+function getcode()
+{
+    return new Promise(function(resolve,reject){
+        let headdivpromise=tab.waitForSelector('.hackdown-content h3');
+        headdivpromise.then(function(){
+            let headingdivspromise=tab.$$('.hackdown-content h3');
+            return headingdivspromise;
+             
+        })
+        .then(function(headingdiv){
+            let divarray=[];
+            for(let i=0;i<headingdiv.length;i++)
+            {
+                let headdiv=headingdiv[i];
+                let h3promise=tab.evaluate(function(elem){
+                  return elem.textContent;
+                },headdiv);
+
+                divarray.push(h3promise);
+            }
+            let sbkaPromise1=Promise.all(divarray);
+            return sbkaPromise1;
+
+        })
+        .then(function(headings){
+            // console.log(headings);
+            for(let i=0;i<headings.length;i++)
+            {
+               let name=headings[i];
+               if(name=='C++')
+               {
+                pos=i;
+                break;
+               }
+            }
+            let  codewrittenpromise=tab.$$('.highlight');
+           return codewrittenpromise;
+
+        })
+        
+            .then(function(codeatags){
+                let atagarray=[];
+                for(let i=0;i<codeatags.length;i++)
+                {
+                   let atag=codeatags[i];
+                   let atagpromise=tab.evaluate(function(elem){
+                       return elem.textContent;
+                   },atag)
+                   atagarray.push(atagpromise);
+                }
+                let sbkaPromise2=Promise.all(atagarray);
+                return sbkaPromise2;
+                
+            })
+               
+            .then(function(codewritten)
+            {
+               gcode=codewritten[pos];
+               resolve();
+                
+            })
+              .catch(function (error) {
+                reject(error);
+              });
+           
+
+    
+        
+
+    })
+}
 
 function solveQuestion(queslink)
 {
@@ -86,6 +214,20 @@ function solveQuestion(queslink)
              let editorialopenpromise=waitandClick('div[data-attr2="Editorial"]');
              return editorialopenpromise;
           })
+          .then(function(){
+              let codepromise=getcode();
+              return codepromise;
+          })
+          .then(function(){
+              let pasteCodepromise=pastecode();
+              return pasteCodepromise
+          })
+          .then(function(){
+            resolve();
+        })
+        .catch(function(error){
+            reject(error)
+        })
       })
       
 
