@@ -34,11 +34,13 @@ browseropenpromise.then(function(browser){
     let loginclickpromise=tab.click(".ui-btn.ui-btn-large.ui-btn-primary.auth-button.ui-btn-styled");
     return loginclickpromise;
 })
+
 .then(function(){
 
     let probsolveclickpromise=waitandClick('.ui-btn.ui-btn-normal.ui-btn-large.ui-btn-line-primary.ui-btn-link.ui-btn-styled');
     return probsolveclickpromise;
 })
+
 
 .then(function(){
     let quespagewaitpromise=tab.waitForSelector(".js-track-click.challenge-list-item");
@@ -75,11 +77,59 @@ browseropenpromise.then(function(browser){
     } 
    // console.log(links)
      let quessolvedpromise=solveQuestion(links[1]);
-     quessolvedpromise.then(function(){
-         console.log("one question solved")
-     })
-})
+     for(let i=2;i<links.length;i++)
+     {
+        quessolvedpromise=quessolvedpromise.then(function(){
+            let otherquessolvepromise=solveQuestion(links[i]);
+            return otherquessolvepromise;
+        })
 
+     }
+    return quessolvedpromise;
+})
+.then(function(){
+    console.log("all question solved")
+})
+.catch(function (error) {
+    console.log(error);
+  });
+
+function handleLockBtn(){
+    return new Promise( function(resolve , reject){
+      let waitPromise = tab.waitForSelector('.ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled' , {visible:true , timeout:5000});
+      waitPromise.then(function(){
+        let lockBtnPromise = tab.$('.ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled');
+        return lockBtnPromise;
+      })
+      .then(function(lockBtn){
+          let boundaryObjectPromise = tab.evaluate( function(elem){
+              return elem.getBoundingClientRect();
+          }  , lockBtn) 
+          return boundaryObjectPromise;
+        // console.log(lockBtn);
+        // let lockBtnClickPromise = lockBtn.click();
+        // return lockBtnClickPromise;
+      })
+      .then(function(bound){
+          let x = bound.top+10;
+          let y = bound.left+10;
+          let lockBtnClickPromise = tab.mouse.click(x , y);
+          return lockBtnClickPromise;
+      })
+      .then(function(){
+        // clicked on lock btn
+        // lock btn found
+        console.log("lock btn found !!!");
+        resolve();
+      })
+      .catch(function(error){
+        // lock btn not found
+        console.log("lock btn not found !!!");
+        resolve();
+      })
+  
+    })
+  }
 function pastecode()
 {
     return new Promise(function(resolve,reject){
@@ -118,7 +168,12 @@ function pastecode()
             return Vpresspromise;
         })
         .then(function(){
-            let submitbuttonpromise=tab.click(' .pull-right.btn.btn-primary.hr-monaco-submit');
+            let controluppromise=tab.keyboard.up("Control");
+            return controluppromise;
+        })
+
+        .then(function(){
+            let submitbuttonpromise=tab.click('.pull-right.btn.btn-primary.hr-monaco-submit');
             return submitbuttonpromise;
         })
         .then(function(){
@@ -213,6 +268,10 @@ function solveQuestion(queslink)
           quesopenpromise.then(function(){
              let editorialopenpromise=waitandClick('div[data-attr2="Editorial"]');
              return editorialopenpromise;
+          })
+          .then(function(){
+              let lockbuttonpromise=handleLockBtn();
+              return lockbuttonpromise;
           })
           .then(function(){
               let codepromise=getcode();
