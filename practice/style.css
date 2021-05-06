@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tabs {
+    border: 1px solid grey;
+    height: 30px;
+}
+
+.search-bar {
+    border: 1px solid;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dfe6e9;
+}
+
+.bookmarks {
+    border: 1px solid grey;
+    height: 30px;
+}
+
+.main-content {
+    border: 1px solid;
+    height: calc( 100vh - 90px);
+}
+
+.navigation {
+    border: 1px solid #dfe6e9;
+    min-width: 5vw;
+    display: flex;
+}
+
+.search {
+    border: 1px solid;
+    min-width: 75vw;
+    outline: none;
+    display: flex;
+    justify-content: inherit;
+}
+
+.extensions {
+    border: 1px solid;
+    min-width: 8vw;
+}
+
+.account {
+    border: 1px solid #dfe6e9;
+    min-width: 30px;
+    /* outline: white; */
+}
+
+.search-icon {
+    width: 1 vw;
+}
+
+.fas {
+}
+
+.fa-search {
+}
+
+.previous-tab {
+}
+
+.next-icon {
+    min-width: 27px;
+}
+
+.previous-icon {
+    min-width: 27px;
+}
+
+.fa-arrow-right {
+}
+
+.fa-arrow-left {
+}
+
+.refresh {
+}
+
+.fa-redo-alt {
+}
+
+.search-icon:hover {
+    background: #b2bec3 !important;
+}
+
+.fa-user-circle {
+}
+
+.account-icon {
+}

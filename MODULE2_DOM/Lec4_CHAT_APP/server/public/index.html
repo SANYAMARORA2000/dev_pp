@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIT-CHAT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div class="chat-container">
+            <div class="left-view">
+                <div class="me">
+                    
+                    <div class="user-image">
+                        <img src="default.png" alt="">
+                    </div>
+                    <div class="user-name"></div>
+                </div>
+                <div class="online-list">
+                    <!-- <div class="user">
+
+                        <div class="user-image">
+                            <img src="default.png" alt="">
+                        </div>
+                        <div class="user-name">tony</div>
+                    </div> -->
+                   
+                </div>
+            </div>
+            <div class="right-view">
+                <div class="chat-window">
+                    <!-- <div class="chat join">A joined the chat</div>
+                    <div class="chat leave">A left the chat</div>
+                    <div class="chat left">hi</div>
+                    <div class="chat right">hello</div>
+                    <div class="chat right">hhahahah</div>
+                    <div class="chat right">ghghghg</div>
+                    <div class="chat left">how are you</div>
+                    <div class="chat join">A joined the chat</div>
+                    <div class="chat leave">A left the chat</div>
+                    <div class="chat left">hi</div> -->
+                </div>
+                <div class="chat-input-box">
+                    <input type="text" class="chat-input">
+                </div>
+            </div>
+        </div>
+        <!-- yaha se socket io mil jayega -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+        <script>
+            const socket=io();//isse socket server se connect ho jayega
+           
+        </script>
+        <script src="./script.js"></script>
+        <script src="./socket.js"></script>
+</body>
+</html>
