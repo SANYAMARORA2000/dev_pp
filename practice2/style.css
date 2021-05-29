@@ -51,7 +51,7 @@ a {
 
 .main {
     background: #f8c291;
-    height: 85vh;
+    height: 97vh;
 }
 
 
@@ -136,6 +136,10 @@ a {
 } 
 
  .heading-pictures-gif {
+    border-radius: 30px;
+}
+.intro-photos
+{
     border-radius: 30px;
 }
 
