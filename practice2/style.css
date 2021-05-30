@@ -110,6 +110,7 @@ a {
 
 .cart {
     margin-top: 31px;
+    margin-right: 8px;
 }
 
 .covid-info {
@@ -141,8 +142,76 @@ a {
 .intro-photos
 {
     border-radius: 30px;
+    height: 64vh;
+}
+.heading-menu
+{
+    text-align: center;
+
+}
+.Menu-pic
+{
+    display: flex;
+    justify-content: space-around;
+}
+.Menuintro-pic
+{
+    width: 20%;
+    border-radius: 30px;
+    margin-top: 12px;
+}
+.menu-details
+{
+
+}
+.menu-1
+{
+    background:#74b9ff;
+    width: 26%;
+    height: 403px;
+    border-radius: 20px;
+    transition:0.5s;
 }
 
+.menu-1:hover
+{
+    background: #55efc4;
+    
+  
+} 
+
+.menu-items
+{
+    margin-top: 8px;
+}
+
+.menu-1-items
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 27px;
+}
+.menu-items-price
+{
+    margin-top: 8px;
+}
+.menu-title
+{
+    text-align: center;
+    font-style: italic;
+    padding: 23px
+}
+.menu-divs-1
+{
+    display: flex;
+    justify-content: space-around;
+}
+.menu-divs-2
+{
+    margin-top: 46px;
+    display: flex;
+    justify-content: space-around
+}
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -204,3 +273,4 @@ a {
     from {opacity: .4}
     to {opacity: 1}
   } 
+  
