@@ -51,7 +51,7 @@ a {
 
 .main {
     background: #f8c291;
-    height: 85vh;
+    height: 97vh;
 }
 
 
@@ -110,6 +110,7 @@ a {
 
 .cart {
     margin-top: 31px;
+    margin-right: 8px;
 }
 
 .covid-info {
@@ -138,7 +139,119 @@ a {
  .heading-pictures-gif {
     border-radius: 30px;
 }
+.intro-photos
+{
+    border-radius: 30px;
+    height: 64vh;
+}
+.heading-menu
+{
+    text-align: center;
 
+}
+.Menu-pic
+{
+    display: flex;
+    justify-content: space-around;
+}
+.Menuintro-pic
+{
+    width: 20%;
+    border-radius: 30px;
+    margin-top: 12px;
+}
+.menu-details
+{
+
+}
+.menu-1
+{
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+
+.menu-1:hover .menu-1-items-inner
+{
+    transform: rotateY(180deg);
+    
+  
+} 
+
+.menu-items
+{
+    margin-top: 19px;
+    margin-left: 1px;
+}
+
+/* .menu-1-items
+{
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  
+/* } */
+.menu-1-items-inner-front, .menu-1-items-inner-back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+.menu-1-items-inner-front
+{
+    background-color: #bbb;
+    color: black;
+    height: 363px;
+    border-radius: 30px;
+}
+.menu-1-items-inner-back
+{
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    height: 363px;
+    border-radius: 30px;
+
+}
+.menu-1-items-inner
+{
+    position: relative;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-items-price
+{
+    margin-top: 19px;
+    margin-left: 15px;
+}
+.menu-title
+{
+    text-align: center;
+    font-style: italic;
+    padding: 23px
+}
+.menu-divs-1
+{
+    display: flex;
+    justify-content: space-around;
+}
+.menu-divs-2
+{
+    margin-top: 202px;
+    display: flex;
+    justify-content: space-around
+}
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -200,3 +313,4 @@ a {
     from {opacity: .4}
     to {opacity: 1}
   } 
+  

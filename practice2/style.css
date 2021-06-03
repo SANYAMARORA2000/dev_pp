@@ -114,7 +114,7 @@ a {
 }
 
 .covid-info {
-    height: 74vh;
+    height: 145vh;
     background: #ecf0f1;
 }
 
@@ -166,34 +166,74 @@ a {
 }
 .menu-1
 {
-    background:#74b9ff;
-    width: 26%;
-    height: 403px;
-    border-radius: 20px;
-    transition:0.5s;
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
 }
 
-.menu-1:hover
+.menu-1:hover .menu-1-items-inner
 {
-    background: #55efc4;
+    transform: rotateY(180deg);
     
   
 } 
 
 .menu-items
 {
-    margin-top: 8px;
+    margin-top: 19px;
+    margin-left: 1px;
 }
 
-.menu-1-items
+/* .menu-1-items
 {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 27px;
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  
+/* } */
+.menu-1-items-inner-front, .menu-1-items-inner-back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
+.menu-1-items-inner-front
+{
+    background-color:#f6e58d;
+    color: black;
+    height: 363px;
+    border-radius: 30px;
+}
+.menu-1-items-inner-back
+{
+    background-color: #55efc4;
+    color: black;
+    transform: rotateY(180deg);
+    display: flex;
+    height: 363px;
+    border-radius: 30px;
+
+}
+.menu-1-items-inner
+{
+    position: relative;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+}
+
 .menu-items-price
 {
-    margin-top: 8px;
+    margin-top: 19px;
+    margin-left: 15px;
 }
 .menu-title
 {
@@ -208,9 +248,25 @@ a {
 }
 .menu-divs-2
 {
-    margin-top: 46px;
+    margin-top: 202px;
     display: flex;
     justify-content: space-around
+}
+.covid-essential-heading
+{
+    text-align: center;
+    font-style: oblique;
+}
+.covid-essential-pic
+{
+    width: 98%;
+    height: 496px;
+    margin-left: 17px;
+    border-radius: 30px;
+}
+.quantity-button
+{
+    
 }
 .slideshow-container {
     max-width: 1000px;
