@@ -51,7 +51,7 @@ a {
 
 .main {
     background: #f8c291;
-    height: 97vh;
+    height: 99vh;
 }
 
 
@@ -156,7 +156,7 @@ a {
 }
 .Menuintro-pic
 {
-    width: 20%;
+    width: 19vw;
     border-radius: 30px;
     margin-top: 12px;
 }
@@ -259,14 +259,122 @@ a {
 }
 .covid-essential-pic
 {
-    width: 98%;
-    height: 496px;
+    width: 98vw;
+    height: 69vh;
     margin-left: 17px;
     border-radius: 30px;
 }
 .quantity-button
 {
+    width: 38px;
+}
+.cart-additon
+{
+    border-radius: 10px;
+    width: 94px;
+    height: 21px;
+    margin-left: 17px;
+}
+.essential-items
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.contact-info
+{
+    text-align: center;
+}
+.contact-heading
+{
+    margin-top: 41px;
+}
+.contact-subheading
+{
+    margin-top: 15px;
+
+}
+.tiffin-plan
+{
+    margin-left: 327px;
+    border-radius: 30px;
+    border: 1px solid black;
+    width: 60%;
+    height: 50%;
+}
+.tiffin-plan-price
+{
+    width: 60%;
+    margin-top: 51px;
+    margin-left: 22%;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+.offers
+{
+    text-align: center;
+    margin-top: 13px;
+    color: orange;
+    font-style: oblique;
+}
+.meal-info
+{   
+    border: 1px solid black;
+    padding: 7px;
+    border-radius: 33px;
+    width: 53%;
+    margin-left: 26%;
+    margin-top: 14px;
+    font-size: larger;
+}
+.meal-info p
+{
+    padding: 7px;
+}
+.mealplan-info
+{
     
+    background: #ecf0f1;
+}
+.signup-btn
+{
+    border: 1px solid black;
+    margin-left: 35%;
+    background: pink;
+    border-radius: 10px;
+    padding: 4px;
+}
+.tiffin-menu
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 26px;
+}
+.tiffin-menu-photo
+{
+    width: 30%;
+    border-radius: 33px;
+}
+table,th.td
+{
+    border: 1px solid black;
+    margin-left: 40vw;
+    margin-top: 71px;
+}
+.index-info
+{
+    background: #ecf0f1;
+}
+.covidess-info
+{
+    background: #ecf0f1;
+}
+.main-contact
+{
+    background: #f8c291;
 }
 .slideshow-container {
     max-width: 1000px;
