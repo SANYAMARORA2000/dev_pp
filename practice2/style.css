@@ -376,6 +376,22 @@ table,th.td
 {
     background: #f8c291;
 }
+.price
+{
+    border: 1px solid black;
+    margin-left: 17px;
+    padding: 3px;
+    border-radius: 11px;
+    background: #ffeaa7;
+}
+.cart-additon:hover
+{
+    background: palegreen;
+}
+.cart-additon
+{
+    transition: 0.5s;
+}
 .slideshow-container {
     max-width: 1000px;
     position: relative;
