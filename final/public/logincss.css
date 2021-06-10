@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+.main-bar {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pointers {
+    display: flex;
+}
+
+.imp-pointers {
+    display: flex
+}
+
+.options {
+    margin: 39px;
+}
+a {
+    color: black;
+}
+.container {
+    max-width: 1300px;
+    margin: auto;
+    margin-left: 25px;
+    margin-right: 25px;
+    background: #f8c291;
+}
+
+.main {
+    background: #f8c291;
+    
+}
+
+.row {
+    display: flex;
+}
+
+.logo-pic {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.cart {
+    margin-top: 31px;
+    margin-right: 8px;
+}
+.signup-btn
+{
+    border: 1px solid black;
+    margin-left: 35%;
+    background: pink;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.container2 
+{
+    padding: 16px;
+    border: 3px solid black;
+    border-radius: 31px;
+    width: 57%;
+    margin-left: 99%;
+    margin-bottom: 37%;
+    margin-top: 15%;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] ,button[type="Login"]{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+   
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit/register button */
+  .Loginbtn {
+    background-color: #04AA6D;
+    color: black;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity:1;
+  }
+  
+  /* Add a blue text color to links */
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }

@@ -4,8 +4,9 @@ console.log(sub);
 sub.addEventListener("click", (e)=>{
 
      e.preventDefault();
-     let nam=document.querySelector("#name");
+    
      let id=document.querySelector("#email");
+     let nam=document.querySelector("#name");
      let pref=document.querySelector("#dropdown1");
      let days=document.querySelector("#dropdown2");
      let meal=document.querySelector("#dropdown3");

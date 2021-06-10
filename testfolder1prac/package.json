@@ -1,8 +1,8 @@
 {
-  "name": "practice",
+  "name": "testfolder1prac",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "multiparty": "^4.2.2",
     "nodemailer": "^6.6.1"
   }
 }
