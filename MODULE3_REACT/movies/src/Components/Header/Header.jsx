@@ -13,7 +13,7 @@ class Header extends Component {
          })
      }
      handleKeyPress=(e)=>{
-       if(e.key=="Enter")
+       if(e.key =="Enter")
        {
            this.props.setMovies(this.state.newMovieName);
        }
