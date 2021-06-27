@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 import "./Header.css"
 
 class Header extends Component {
@@ -26,6 +27,16 @@ class Header extends Component {
             </div>
             <div className="search-btn">
                 <input className="search-movies" value={this.state.newMovieName} type="text" placeholder="search" onChange={this.handleOnChange} onKeyPress={this.handleKeyPress}/>
+            </div>
+            <div className="header-links">
+                <div className="header-link">
+                <Link to="/">Home</Link>
+                
+                </div>
+                <div className="header-link">
+                <Link to="/fav">Favourites</Link>
+                
+                </div>
             </div>
         </div> );
     }
