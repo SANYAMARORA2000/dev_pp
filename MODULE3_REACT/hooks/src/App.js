@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import UseState from "./Components/UseState";
+import UseEffect from "./Components/UseEffect";
+import HookTwo from "./Components/UseEffect";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return  <div className="App">
+    {/* <UseState></UseState> */}
+    <HookTwo ></HookTwo >
+
+  </div>;
+  
 }
 
 export default App;
