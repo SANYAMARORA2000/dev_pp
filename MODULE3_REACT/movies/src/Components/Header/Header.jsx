@@ -33,10 +33,7 @@ class Header extends Component {
                 <Link to="/">Home</Link>
                 
                 </div>
-                <div className="header-link">
-                <Link to="/fav">Favourites</Link>
-                
-                </div>
+               
             </div>
         </div> );
     }

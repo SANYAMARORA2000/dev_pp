@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header/Header.jsx';
 import Movies from './Components/Movies/Movies.jsx';
 import Pagination from './Components/Pagination/Pagination.jsx';
-import Favourite from './Components/Favourite/Favourite.jsx';
+
 import MoviePage from './Components/MoviePage/MoviePage.jsx';
 import axios from "axios";
 import { API_KEY, API_URL} from './API/secrets.js';
@@ -128,9 +128,7 @@ class App extends Component {
       
            </Route>
 
-           <Route path="/fav" exact>
-             <Favourite></Favourite>
-           </Route>
+          
            <Route path="/moviepage" exact component={MoviePage}></Route>
       </Switch>
      
