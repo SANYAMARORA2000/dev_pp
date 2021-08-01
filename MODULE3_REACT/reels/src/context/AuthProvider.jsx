@@ -1,47 +1,37 @@
+import React, { useState, useEffect } from "react";
+import { firebaseAuth } from "../config/firebase";
+export const AuthContext = React.createContext();
 
-import React, { useState, useEffect } from 'react';
+export function AuthProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState(null);
 
-import { firebaseAuth} from "../config/firebase";
+  function login(email, password) {
+    return firebaseAuth.signInWithEmailAndPassword(email, password);
+  }
 
-export const AuthContext=React.createContext();//wiwth the help of this context can be used everywhere
+  function signOut() {
+    return firebaseAuth.signOut();
+  }
 
+  function signUp(email, password) {
+    return firebaseAuth.createUserWithEmailAndPassword(email , password);
+  }
 
-export function AuthProvider({children}){
-    const[currentUser,setCurrentUser]=useState(null);
+  useEffect(() => {
+    // event attach kra hai
+    // logged In state => loggedOut state
+    // loggedOut state => loggedIn state
+    firebaseAuth.onAuthStateChanged((user) => {
+      console.log("Inside auth state changed !!", user);
+      setCurrentUser(user);
+    });
+  }, []);
 
-
-    function login(email,password)
-    {
-        return firebaseAuth.signInWithEmailandPassword(email,password);
-    }
-    function signOut()
-    {
-        return firebaseAuth.signOut();
-    }
-
-    function signUp(email,password)
-    {
-        // return  firebaseAuth.signUp(email , password);
-    }
-
-    useEffect(()=>{
-        //event attach kar diya
-        //logged in se logged out wale state change main yeh call hoga and vice versa
-        firebaseAuth.onAuthStateChanged((user)=>{
-            console.log("inside auth state changed",user);
-            setCurrentUser(user);//jo ab user mila hai vo set kardiya
-        });
-    },[]);
-
-    let value={
-        currentUser:currentUser,
-        signOut:signOut,
-        login:login,
-        signUp:signUp,
-    };
-
-    return <AuthContext.Provider value={value}>
-          {children}
-    </AuthContext.Provider>
+  let value = {
+    currentUser: currentUser,
+    signOut: signOut,
+    login: login,
+    signUp: signUp,
+  };
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
