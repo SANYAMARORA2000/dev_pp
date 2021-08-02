@@ -6,7 +6,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
 
   function login(email, password) {
-    return firebaseAuth.signInWithEmailAndPassword(email, password);
+    return firebaseAuth.signInWithEmailAndPassword(email, password);//it is a promisified function gives a pending promise
   }
 
   function signOut() {

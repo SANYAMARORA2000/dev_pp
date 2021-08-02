@@ -10,7 +10,7 @@ const Login = (props) => {
   const handleLogin = async (e)=>{
     //   email , password
     try{
-        await login(email , password);
+        await login(email , password);//as login was a promisified function so we use await
         props.history.push("/"); //navigate to /
     }
     catch(err){
