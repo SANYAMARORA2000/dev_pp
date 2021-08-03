@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { Button } from "@material-ui/core";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import { firebaseDB, firebaseStorage } from "../config/firebase";
-// import { uuid } from 'uuidv4';
+import { uuid } from 'uuidv4';
 const Feeds = (props) => {
   const { signOut } = useContext(AuthContext);
   const [videoFile, setVideoFile] = useState(null);
@@ -45,18 +45,19 @@ const Feeds = (props) => {
       async function fun3() {
         let videoUrl = await uploadVideoObject.snapshot.ref.getDownloadURL();
         console.log(videoUrl);
-        // let pid = uuid(); // unique id
-        // await firebaseDB.collection("posts").doc(pid).set({
-        //   pid:pid,
-        //   uid:uid,
-        //   comments:[],
-        //   likes:[],
-        //   videoLink:videoUrl
-        // });
-        // let doc = await firebaseDB.collection("users").doc(uid).get();
-        // let document = doc.data();
-        // document.postsCreated.push(pid);
-        // await firebaseDB.collection("users").doc(uid).set(document);
+      
+        let pid = uuid(); // unique id
+        await firebaseDB.collection("posts").doc(pid).set({
+          pid:pid,
+          uid:uid,
+          comments:[],
+          likes:[],
+          videoLink:videoUrl
+        });
+        let doc = await firebaseDB.collection("users").doc(uid).get();
+         let document =doc.data();
+        document.postsCreated.push(pid);
+        await firebaseDB.collection("users").doc(uid).set(document);
       }
     } catch (err) {}
   };

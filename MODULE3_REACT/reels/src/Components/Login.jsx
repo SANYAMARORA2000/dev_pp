@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import {TextField,Grid,Button,Paper,Card,CardContent,CardActions,Container,CardMedia,Typography,makeStyles} from '@material-ui/core'
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -22,8 +23,19 @@ const Login = (props) => {
   }
 
   return (
-    <>
-    <h1>Login Page</h1>
+    <div>
+      <Container>
+        <Grid container spacing={2}> 
+        <Grid item>
+           <Paper>Carousel</Paper>
+        </Grid>
+        <Grid>
+          
+        </Grid>
+
+        </Grid>
+      </Container>
+    {/* <h1>Login Page</h1>
       <div>
         <div>
           Email
@@ -41,8 +53,8 @@ const Login = (props) => {
         </div>
       </div>
       <button onClick={handleLogin}>Login</button>
-      <h2 style={{ color: "red" }}>{message}</h2>{" "}
-    </>
+      <h2 style={{ color: "red" }}>{message}</h2>{" "} */}
+    </div>
   );
 };
 

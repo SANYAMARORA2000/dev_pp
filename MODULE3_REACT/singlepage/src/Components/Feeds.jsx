@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import {Button} from "@material-ui/core"
 import MusicNote from "@material-ui/icons/MusicNote"
 import { firebaseDB, firebaseStorage } from "../config/firebase";
-
+import { uuid } from 'uuidv4';
 const Feeds = (props) => {
     const{signOut}=useContext(AuthContext)
     const [musicFile,setMusicFile]=useState(null);
@@ -51,13 +51,18 @@ const Feeds = (props) => {
         let musicUrl =await uploadMusicObject.snapshot.ref.getDownloadURL();
         console.log(musicUrl);
         // db me collection => document => {username , email , profileImageUrl};
-        // firebaseDB.collection("users").doc(uid).set({
-        //   email: email,
-        //   userId: uid,
-        //   username: username,
-        //   profileImageUrl: profileImageUrl
-        // });
-        // props.history.push("/");
+        let pid=uuid();//unique id for each post
+        await firebaseDB.collection("posts").doc(pid).set({
+          pid:pid,
+          uid:uid,
+          comments:[],
+          likes:[],
+          audioLink:musicUrl
+        });
+        let doc = await firebaseDB.collection("users").doc(uid).get();
+          let document =doc.data();
+          document.postsCreated.push(pid);
+          await firebaseDB.collection("users").doc(uid).set(document);
       }
         }
         catch(err)
