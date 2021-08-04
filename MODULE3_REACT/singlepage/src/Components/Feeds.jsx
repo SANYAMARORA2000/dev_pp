@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../context/AuthProvider";
 import {Button} from "@material-ui/core"
 import MusicNote from "@material-ui/icons/MusicNote"
 import { firebaseDB, firebaseStorage } from "../config/firebase";
 import { uuid } from 'uuidv4';
+import AudioPost from './AudioPost';
 const Feeds = (props) => {
     const{signOut}=useContext(AuthContext)
     const [musicFile,setMusicFile]=useState(null);
+    const [posts,setPosts]=useState([]);
     const {currentUser}=useContext(AuthContext);
     
     const handleLogout = async ()=>{
@@ -71,17 +73,63 @@ const Feeds = (props) => {
         }
       
     }
+    let conditionObject = {
+      root: null, //observe from whole page
+      threshold: "0.8", //80%
+    };
+    function cb(entries) {
+      console.log(entries);
+
+      entries.forEach((entry) => {
+        let child = entry.target.children[0];
+        // play(); => async
+        // pause(); => sync
+  
+        child.play().then(function () {
+          if (entry.isIntersecting == false) {
+            child.pause();
+          }
+        });
+      });
+    }
+    useEffect(()=>{
+      let observerObject = new IntersectionObserver(cb, conditionObject);
+      let elements = document.querySelectorAll(".audio-container");
+
+      elements.forEach((el) => {
+          observerObject.observe(el); //Intersection Observer starts observing each video element
+        });
+  },[posts])//will use it as component didmount
+
+    useEffect(()=>{
+    //when you first come at feed bring all posts
+    firebaseDB.collection("posts").get().then(snapshot=>{
+      let allPosts=snapshot.docs.map(doc=>{
+        return doc.data();
+      })
+      setPosts(allPosts);
+    })
+    },[])
     return ( 
-        <div>
-         <h1>Feeds</h1>
-         <button onClick={handleLogout}>LOG OUT</button>
-         <div>
-             <input type="file"  onChange={handleInputFile}/>
-            <label>
-                <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
-            </label>
+        <div className="uploadAudio">
+         
+         {/* <button onClick={handleLogout}>LOG OUT</button> */}
+         <div >
+          <div>
+              <input type="file"  onChange={handleInputFile}/>
+              <label>
+                  <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
+              </label>
+          </div>
+          </div>
+          <div className="feed-audio-list">
+           {posts.map(postObj=>{
+             return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>
+           })}
          </div>
-        </div>
+         </div>
+         
+         
      );
 }
  
