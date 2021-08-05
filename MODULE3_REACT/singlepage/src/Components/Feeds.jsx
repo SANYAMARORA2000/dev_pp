@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../context/AuthProvider";
 import {Button} from "@material-ui/core"
 import MusicNote from "@material-ui/icons/MusicNote"
-import { firebaseDB, firebaseStorage } from "../config/firebase";
+import { firebaseDB, firebaseStorage ,timeStamp} from "../config/firebase";
 import { uuid } from 'uuidv4';
 import AudioPost from './AudioPost';
 const Feeds = (props) => {
@@ -59,7 +59,8 @@ const Feeds = (props) => {
           uid:uid,
           comments:[],
           likes:[],
-          audioLink:musicUrl
+          audioLink:musicUrl,
+          createdAt:timeStamp()
         });
         let doc = await firebaseDB.collection("users").doc(uid).get();
           let document =doc.data();
@@ -103,17 +104,20 @@ const Feeds = (props) => {
 
     useEffect(()=>{
     //when you first come at feed bring all posts
-    firebaseDB.collection("posts").get().then(snapshot=>{
-      let allPosts=snapshot.docs.map(doc=>{
+    firebaseDB.collection("posts").orderBy("createdAt","desc")
+    .onSnapshot((snapshot)=>{
+      let allPosts=snapshot.docs.map( (doc)=>{
         return doc.data();
-      })
+      });
       setPosts(allPosts);
-    })
-    },[])
+    });
+  },[]);
+   
+
     return ( 
         <div className="uploadAudio">
          
-         {/* <button onClick={handleLogout}>LOG OUT</button> */}
+         <button onClick={handleLogout}>LOG OUT</button>
          <div >
           <div>
               <input type="file"  onChange={handleInputFile}/>
