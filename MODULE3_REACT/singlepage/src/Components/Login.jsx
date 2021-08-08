@@ -3,7 +3,9 @@ import { AuthContext } from "../context/AuthProvider";
 
 import {TextField,Grid,Button,Paper,Card,CardContent,CardActions,CardMedia,Container,makeStyles, Typography} from '@material-ui/core';
 import {Link, link} from "react-router-dom";
-import logo from  "../logo.jpg";
+// import logo from  "../logo.jpg";
+import logo from  "../abc.png";
+
 import enjoymusic from  "../enjoymusic.jpg";
 import a from  "../a.gif";
 
@@ -95,7 +97,7 @@ let classes=useStyles();
               <Grid  item sm={4} className={classes.cont}>
                 {/* login form */}
                 <Card variant="outlined" className={classes.mb}>
-                <CardMedia image={logo} style={{height:"8rem" ,backgroundSize:"contain"}}></CardMedia>
+                <CardMedia image={logo} style={{height:"10vh" ,backgroundSize:"contain" ,padding:"5px"}}></CardMedia>
                 <CardContent className={classes.centerElements}>
                   <TextField  label="Email" type="email" variant="outlined" value={email} className={classes.mb} size="small"  onChange={(e) => setEmail(e.target.value)}></TextField>
                   <TextField  label="Password" type="password" variant="outlined" value={password} size="small"   onChange={(e) => setPassword(e.target.value)}></TextField>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../context/AuthProvider";
 import {Button} from "@material-ui/core"
-import MusicNote from "@material-ui/icons/MusicNote"
+import MusicNote from "@material-ui/icons/MusicNote";
 import { firebaseDB, firebaseStorage ,timeStamp} from "../config/firebase";
 import { uuid } from 'uuidv4';
 import AudioPost from './AudioPost';
@@ -115,23 +115,46 @@ const Feeds = (props) => {
    
 
     return ( 
-        <div className="uploadAudio">
          
-         <button onClick={handleLogout}>LOG OUT</button>
+       currentUser?
+        <div className="uploadAudio" style={{backgroundColor:"lightgreen",}}>
+         
+        
          <div >
-          <div>
-              <input type="file"  onChange={handleInputFile}/>
-              <label>
-                  <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
-              </label>
+              <div>
+                  <input  type="file"  onChange={handleInputFile}/>
+                  <label>
+                      <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
+                  </label>
+              </div>
           </div>
+                <div className="feed-audio-list">
+                {posts.map(postObj=>{
+                  return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>
+                })}
+              </div>
+              <Button variant="contained" color="secondary" size="small"onClick={handleLogout}>LOG OUT</Button>
+        </div> :
+
+         <div className="uploadAudio" style={{backgroundColor:"lightgreen" , 
+         backgroundImage: "url(" + "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" + ")",
+         backgroundPosition: 'center',
+         backgroundSize: 'cover',
+         backgroundRepeat: 'no-repeat'}}>
+         
+        
+         <div >
+              
           </div>
-          <div className="feed-audio-list">
-           {posts.map(postObj=>{
-             return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>
-           })}
-         </div>
-         </div>
+                <div className="feed-audio-list">
+                {posts.map(postObj=>{
+                  return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>
+                })}
+              </div>
+             
+        </div> 
+
+
          
          
      );

@@ -15,6 +15,46 @@ const AudioPost = (props) =>
  let [isLiked,setIsLiked]=useState(false);
  let {currentUser}=useContext(AuthContext);
 
+ const useStyles = makeStyles({
+ cardstyle: {
+  height:"650px" ,
+  width:"345px" ,
+  margin:"auto",
+  padding:"10px",
+  marginBottom:"10px",
+  backgroundColor:"#f6e58d",
+  borderRadius:"20px"
+  },
+  namebar:{
+    display:"flex",
+     borderBottom:"1px solid "
+
+
+  },
+  namebar1:{
+    display:"flex",
+     borderBottom:"1px solid white"
+
+
+  },
+  cardstyle2:
+  {
+    height:"70vh" ,
+    width:"45vh" ,
+    margin:"auto",
+  padding:"10px",
+  marginBottom:"10px",
+  borderRadius:"20px",
+  backgroundColor: "rgb(0,0,0)", /* Fallback color */
+  backgroundColor: "rgba(0,0,0, 0.4)",
+
+ 
+  },
+
+  
+});
+let classes = useStyles();
+
  const addCommentToCommentList=async(e)=>{
     let profilePic;
     //when commenting and post user is same
@@ -26,6 +66,7 @@ const AudioPost = (props) =>
     {
       let doc=await firebaseDB.collection("users").doc(currentUser.uid).get();
       let user=doc.data();
+      console.log(user.postsCreated)
       profilePic=user.profileImageUrl;
     }
   let newCommentList=[...commentList,{profilePic:profilePic ,comment:comment}];
@@ -75,58 +116,74 @@ const AudioPost = (props) =>
 
      useEffect( async() => 
      {
-       console.log(props);
-      let uid=props.postObj.uid;
-      
-      let doc=await firebaseDB.collection("users").doc(uid).get();
-      let user=doc.data();
-      let commentList=props.postObj.comments;
-      let likes=props.postObj.likes;
-      let updatedCommentList=[];
-      for(let i=0;i<commentList.length;i++)
-      {
-             let commentObj=commentList[i];
-             let doc=  await firebaseDB.collection("users").doc(commentObj.uid).get();
-             let commentUserPic=doc.data().profileImageUrl;
-             updatedCommentList.push({profilePic:commentUserPic ,comment:commentObj.comment});
-      }
-       if(likes.includes(currentUser.uid))
+       if(currentUser)
        {
-         setIsLiked(true);
-         setLikesCount(likes.length);
+        console.log(props);
+        let uid=props.postObj.uid;
+        
+        let doc=await firebaseDB.collection("users").doc(uid).get();
+        let user=doc.data();
+        let commentList=props.postObj.comments;
+        let likes=props.postObj.likes;
+        let updatedCommentList=[];
+        for(let i=0;i<commentList.length;i++)
+        {
+               let commentObj=commentList[i];
+               let doc=  await firebaseDB.collection("users").doc(commentObj.uid).get();
+               let commentUserPic=doc.data().profileImageUrl;
+               updatedCommentList.push({profilePic:commentUserPic ,comment:commentObj.comment});
+        }
+         if(likes.includes(currentUser.uid))
+         {
+           setIsLiked(true);
+           setLikesCount(likes.length);
+         }
+         else
+         {
+           if(likes.length)
+           {
+            setLikesCount(likes.length);
+           }
+         
+         }
+        // let updatedCommentList=commentList.map(async(commentObj)=>{
+        //   let doc=  await firebaseDB.collection("users").doc(commentObj.uid).get();
+        //   let commentUserPic=doc.data().profileImageUrl;
+        //   return {profilePic:commentUserPic ,comment:commentObj.comment};
+        // });
+  
+        setUser(user);
+        setCommentList(updatedCommentList);
+        // .then((doc)=>{
+        //   let user=doc.data();//get user who created that post
+        //   setUser(user);
+        //   setCommentList(props.postObj.comments)
+        // })
+
        }
        else
        {
-         if(likes.length)
-         {
-          setLikesCount(likes.length);
-         }
-       
+        let uid=props.postObj.uid;
+        let doc=await firebaseDB.collection("users").doc(uid).get();
+        let user=doc.data();
+        setUser(user);
+        
        }
-      // let updatedCommentList=commentList.map(async(commentObj)=>{
-      //   let doc=  await firebaseDB.collection("users").doc(commentObj.uid).get();
-      //   let commentUserPic=doc.data().profileImageUrl;
-      //   return {profilePic:commentUserPic ,comment:commentObj.comment};
-      // });
-
-      setUser(user);
-      setCommentList(updatedCommentList);
-      // .then((doc)=>{
-      //   let user=doc.data();//get user who created that post
-      //   setUser(user);
-      //   setCommentList(props.postObj.comments)
-      // })
+       
      },[]);
 
 
 
     return ( 
       
-      
+      currentUser?
        <Container>
-             <Card style={{height:"650px" ,width:"345px" ,margin:"auto",padding:"10px",marginBottom:"10px"}}>
-                <Avatar src={user ? user.profileImageUrl : ""}></Avatar>
-                <Typography variant="span">{user ?user.username : ""} </Typography> 
+             <Card className={classes.cardstyle}>
+                 <div className={classes.namebar} >
+                 <Avatar style={{marginRight:"5px",marginBottom:"6px"}} src={user ? user.profileImageUrl : ""}></Avatar>
+                  <Typography variant="span">{user ?user.username : ""} </Typography> 
+                 </div>
+                
                 <div className="audio-container">
                 <Audio src={props.postObj.audioLink} ></Audio>
                 </div>
@@ -140,7 +197,7 @@ const AudioPost = (props) =>
                }
             
                 <Typography variant="p">Comments</Typography>
-                <TextField variant="outlined" label="Add a comment" size="small" value={comment} onChange={(e)=>{setComment(e.target.value)}}></TextField>
+                <TextField  style={{borderRight:"2px"}}variant="outlined" label="Add a comment" size="small" value={comment} onChange={(e)=>{setComment(e.target.value)}}></TextField>
                 <Button variant="contained" color="secondary" onClick={addCommentToCommentList}>Post</Button>
 
                  { commentList.map(commentObj=>{
@@ -159,7 +216,34 @@ const AudioPost = (props) =>
                 })}
                 
             </Card>
-       </Container> 
+       </Container> :
+
+        <Container >
+        <Card className={classes.cardstyle2}>
+            <div className={classes.namebar1} >
+            <Avatar style={{marginRight:"5px",marginBottom:"6px"}} src={user ? user.profileImageUrl : ""}></Avatar>
+             <Typography style={{color:"white"}}variant="span">{user ?user.username : ""} </Typography> 
+            </div>
+           
+           <div className="audio-container">
+           <Audio src={props.postObj.audioLink} ></Audio>
+           </div>
+          
+
+
+           
+       
+
+             {/* // <Avatar src={commentObj.profilePic }></Avatar> */}
+             
+                     
+           
+            
+           
+           
+       </Card>
+  </Container> 
+
       
     
       
@@ -188,7 +272,7 @@ function Audio(props) {
         margin: "1rem",
         // border: "1px solid black",
         backgroundColor:"red",
-        backgroundImage: "url(" + "https://i.pinimg.com/originals/05/4a/a3/054aa3421c22e0c9e04ada3082066a8d.gif" + ")",
+        backgroundImage: "url(" + "https://i.pinimg.com/originals/7c/d6/36/7cd6362b5b7e1114417dae62371dd6fe.gif" + ")",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
