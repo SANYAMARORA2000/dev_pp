@@ -1,12 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../context/AuthProvider";
-import {Button} from "@material-ui/core"
+import {Button,Typography,Avatar,makeStyles} from "@material-ui/core"
 import { firebaseDB, firebaseStorage ,timeStamp} from "../config/firebase";
 import AudioPost from './AudioPost';
+
 const Profile = (props) => {
+  const useStyles = makeStyles({
+    
+    backgroundpic:
+    {
+      height:"100vh", 
+       backgroundImage: "url(" + "https://www.dudleynews.co.uk/resources/images/3051716/" + ")",
+      backgroundSize: 'cover'
+    },
+    headingdiv:
+    {
+      display:"flex",
+      justifyContent:"space-between"
+    }
+
+  })
+  let classes = useStyles();
+
     const{signOut}=useContext(AuthContext)
    
     const [posts,setPosts]=useState([]);
+    let [user,setUser]=useState(null);
     const {currentUser}=useContext(AuthContext);
     
     const handleLogout = async ()=>{
@@ -55,9 +74,11 @@ const Profile = (props) => {
   
 
    
-    useEffect(()=>{
+    useEffect(async ()=>{
         //when you first come at feed bring all posts
-        console.log(currentUser.uid);
+       
+        let doc=await firebaseDB.collection("users").doc(currentUser.uid).get();
+        let user=doc.data();
         firebaseDB.collection("posts").orderBy("createdAt","desc")
         .onSnapshot((snapshot)=>{
           let allPosts=snapshot.docs.map( (doc)=>{
@@ -65,28 +86,34 @@ const Profile = (props) => {
           });
           console.log(allPosts);
           let filteredobj=[];
-          {allPosts.map(postObj=>{
+          allPosts.map(postObj=>{
               if(postObj.uid==currentUser.uid)
               {
                 filteredobj.push(postObj);
               }
           
-          })}
+          })
           
           console.log(filteredobj);
           
           
           setPosts(filteredobj);
+          setUser(user);
          
         });
       },[]);
 
       console.log(posts)
     return ( 
-        <div className="uploadAudio" style={{backgroundColor:"lightgreen"}}>
+        <div className="uploadAudio" className={classes.backgroundpic}>
          
-         <Button variant="contained" color="secondary" size="small"onClick={handleLogout}>LOG OUT</Button>
-         
+        <div className={classes.headingdiv}>
+              <div>
+              <Avatar style={{marginRight:"5px",marginBottom:"6px"}} src={user ? user.profileImageUrl : ""}></Avatar>
+              <Typography style={{ color:"black"}}variant="h5">{user ?user.username : ""} </Typography> 
+              </div>
+              <Button style={{height:"6vh"}}variant="contained" color="secondary" size="small"onClick={handleLogout}>LOG OUT</Button>
+        </div>
           <div className="feed-audio-list">
            {posts.map(postObj=>{
              return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>

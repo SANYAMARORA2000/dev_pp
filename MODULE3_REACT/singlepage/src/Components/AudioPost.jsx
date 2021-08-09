@@ -22,8 +22,9 @@ const AudioPost = (props) =>
   margin:"auto",
   padding:"10px",
   marginBottom:"10px",
-  backgroundColor:"#f6e58d",
-  borderRadius:"20px"
+  backgroundColor:"#ffeaa7",
+  borderRadius:"20px",
+ 
   },
   namebar:{
     display:"flex",
@@ -50,6 +51,14 @@ const AudioPost = (props) =>
 
  
   },
+  audiocontainer:
+  {
+    
+    borderRadius: "20px",
+
+  }
+ 
+  
 
   
 });
@@ -196,8 +205,8 @@ let classes = useStyles();
                 </div>
                }
             
-                <Typography variant="p">Comments</Typography>
-                <TextField  style={{borderRight:"2px"}}variant="outlined" label="Add a comment" size="small" value={comment} onChange={(e)=>{setComment(e.target.value)}}></TextField>
+                <Typography style={{padding:"3px"}}variant="p">Comments</Typography>
+                <TextField  style={{borderRight:"2px"}} variant="outlined" label="Add a comment" size="small" value={comment} onChange={(e)=>{setComment(e.target.value)}}></TextField>
                 <Button variant="contained" color="secondary" onClick={addCommentToCommentList}>Post</Button>
 
                  { commentList.map(commentObj=>{
@@ -267,16 +276,17 @@ function Audio(props) {
   }
     return (
       <audio
-       style={{ 
-        height: "45vh",
-        margin: "1rem",
-        // border: "1px solid black",
-        backgroundColor:"red",
-        backgroundImage: "url(" + "https://i.pinimg.com/originals/7c/d6/36/7cd6362b5b7e1114417dae62371dd6fe.gif" + ")",
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-        }} 
+         style={{
+          height: "45vh",
+          width:"90%",
+          margin: "1rem",
+         
+          backgroundColor:"red",
+          backgroundImage: "url(" + "https://i.pinimg.com/originals/7c/d6/36/7cd6362b5b7e1114417dae62371dd6fe.gif" + ")",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+         }}
 
          className="audio-styles" controls muted={false} onEnded={handleAutoScroll}   onClick={(e)=>{console.log(timeStamp())}}>
         <source src={props.src} type="audio/mp3"></source>

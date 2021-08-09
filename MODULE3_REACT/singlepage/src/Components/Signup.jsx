@@ -1,6 +1,23 @@
 import React, { useContext, useState } from "react";
 import { firebaseDB, firebaseStorage } from "../config/firebase";
 import { AuthContext } from "../context/AuthProvider";
+import logo  from "../abc.png";
+import BackupSharpIcon from '@material-ui/icons/BackupSharp';
+import { Link } from "react-router-dom";
+import {
+  TextField,
+  Grid,
+  Button,
+  Paper,
+  Card,
+  CardContent,
+  CardActions,
+  Container,
+  CardMedia,
+  Typography,
+  makeStyles,
+  IconButton,
+} from "@material-ui/core";
 
 const Signup = (props) => {
   const [email, setEmail] = useState("");
@@ -54,46 +71,174 @@ const Signup = (props) => {
       setMessage(err.message);
     }
   };
+  let useStyles = makeStyles({
+    centerDivs: {
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      width: "100vw",
+    },
+    carousal: { height: "10rem", backgroundColor: "lightgray" },
+    fullWidth: {
+      width: "100%",
+    },
+    centerElements: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    mb: {
+     
+      marginTop:"2rem"
+    },
+    padding: {
+      paddingTop: "1rem",
+      paddingBottom: "1rem",
+    },
+    alignCenter: {
+      justifyContent: "center",
+    },
+    backgroundpic:
+    {
+      height:"100vh", 
+       backgroundImage: "url(" + "https://cdn.pixabay.com/photo/2015/05/31/11/27/earphones-791188_1280.jpg" + ")",
+      backgroundSize: 'cover'
+    },
+  });
+  let classes = useStyles();
 
   return (
-    <>
-      <h1>Signup Page</h1>
-      <div>
-        <div>
-          Username
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          Email
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          Password
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          Profile Image
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => {
-              handleFileSubmit(e);
-            }}
-          ></input>
-        </div>
-      </div>
-      <button onClick={handleSignUp}>SignUp</button>
-      <h2 style={{ color: "red" }}>{message}</h2>{" "}
-    </>
+    <div className={classes.backgroundpic}>
+      <Container >
+        <Grid container spacing={2} style={{justifyContent : "space-around"}}>
+          <Grid item sm={6}>
+            <Card variant="outlined" className={classes.mb}>
+              <CardMedia
+              image={logo}
+              style={{ height: "5rem", backgroundSize: "contain" }}
+              ></CardMedia>
+              <CardContent className = {classes.centerElements}>
+
+              <TextField
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                  value={email}
+                  size="small"
+                  onChange={(e) => setEmail(e.target.value)}
+                  className = {classes.mb}
+                ></TextField>
+
+                <TextField
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                  value={password}
+                  size="small"
+                  onChange={(e) => setPassword(e.target.value)}
+                  className = {classes.mb}
+                ></TextField>
+
+                 <TextField
+                  label="Name"
+                  type="name"
+                  variant="outlined"
+                  value={username}
+                  size="medium"
+                  onChange={(e) => setUsername(e.target.value)}
+                  className = {classes.mb}
+                ></TextField>
+
+              <CardActions>
+              <input
+        accept="image/*"
+        className={classes.input}
+        onChange={(e) => {
+          handleFileSubmit(e);
+        }}
+        type="file"
+      />
+      <label variant="contained">
+        <Button variant="contained" color="primary"
+        startIcon={<BackupSharpIcon></BackupSharpIcon>}>
+          Upload Profile Picture
+        </Button>
+      </label>
+              </CardActions>
+
+                <CardActions>
+                  <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSignUp}
+                  className={classes.fullWidth}
+                >
+                  Sign Up
+                </Button>
+              </CardActions>
+              <Typography
+                style={{ color: "red" }}
+                variant="h5"
+                >{message}</Typography>
+              </CardContent>
+            </Card>
+
+            <Card variant="outlined" className={classes.padding}>
+              <Typography style={{ textAlign: "center" }}>
+                 Have an account ?
+                <Button variant="contained" color="primary">
+                  <Link style={{ color: "white" }} to="/login">
+                    Login
+                  </Link>
+                </Button>
+              </Typography>
+            </Card>
+
+          </Grid>
+        </Grid>
+
+
+
+
+      </Container>
+    </div>
+    // <>
+    //   <h1>Signup Page</h1>
+    //   <div>
+    //     <div>
+    //       Username
+    //       <input
+    //         value={username}
+    //         onChange={(e) => setUsername(e.target.value)}
+    //       ></input>
+    //     </div>
+    //     <div>
+    //       Email
+    //       <input
+    //         value={email}
+    //         onChange={(e) => setEmail(e.target.value)}
+    //       ></input>
+    //     </div>
+    //     <div>
+    //       Password
+    //       <input
+    //         value={password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //       ></input>
+    //     </div>
+    //     <div>
+    //       Profile Image
+    //       <input
+    //         type="file"
+    //         accept="image/*"
+    //         onChange={(e) => {
+    //           handleFileSubmit(e);
+    //         }}
+    //       ></input>
+    //     </div>
+    //   </div>
+    //   <button onClick={handleSignUp}>SignUp</button>
+    //   <h2 style={{ color: "red" }}>{message}</h2>{" "}
+    // </>
   );
 };
 

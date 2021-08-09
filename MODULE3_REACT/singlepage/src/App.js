@@ -10,7 +10,7 @@ import Feeds from "./Components/Feeds";
 import Login from "./Components/Login";
 import Profile from "./Components/Profile";
 import Signup from "./Components/Signup";
-import Feedwithoutlogin from './Components/Feedwithoutlogin';
+
 import { AuthContext,AuthProvider } from './context/AuthProvider';
 
 
@@ -22,7 +22,7 @@ function App() {
        <div className="App">
        <Header></Header>
           <Switch>
-          {/* <Route path="/feedw" component={Feedwithoutlogin} exact></Route> */}
+   
           <Route path="/" component={Feeds} exact></Route>
             <Route path="/login" component={Login} exact></Route>
             <Route path="/signup" component={Signup} exact></Route>

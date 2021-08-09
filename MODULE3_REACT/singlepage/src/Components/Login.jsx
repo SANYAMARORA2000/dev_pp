@@ -57,7 +57,8 @@ const Login = (props) => {
       
     },
     mb:{
-      marginBottom:"1rem"
+      marginBottom:"1rem",
+     
     },
     padding:{
       paddingTop:"1rem",
@@ -68,8 +69,12 @@ const Login = (props) => {
     },
     color:
     {
-      background:"#ff7f50",
+      // background:"#ff7f50",
       height:"100vh",
+      backgroundImage: "url(" + "https://www.gannett-cdn.com/media/2019/09/13/USATODAY/usatsports/247WallSt.com-247WS-577225-imageforentry6-7yr.jpg" + ")",
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
     
     },
     cont:
@@ -81,6 +86,12 @@ const Login = (props) => {
       marginLeft:"5vw",
       
   
+    },
+    cardlogo:
+    {
+      height:"9vh" ,
+      backgroundSize:"contain" ,
+      padding:"5px"
     }
 
   })
@@ -97,7 +108,7 @@ let classes=useStyles();
               <Grid  item sm={4} className={classes.cont}>
                 {/* login form */}
                 <Card variant="outlined" className={classes.mb}>
-                <CardMedia image={logo} style={{height:"10vh" ,backgroundSize:"contain" ,padding:"5px"}}></CardMedia>
+                <CardMedia image={logo} className={classes.cardlogo}></CardMedia>
                 <CardContent className={classes.centerElements}>
                   <TextField  label="Email" type="email" variant="outlined" value={email} className={classes.mb} size="small"  onChange={(e) => setEmail(e.target.value)}></TextField>
                   <TextField  label="Password" type="password" variant="outlined" value={password} size="small"   onChange={(e) => setPassword(e.target.value)}></TextField>
@@ -121,25 +132,7 @@ let classes=useStyles();
               </Grid>
         </Grid>
       </Container>
-    {/* <h1>Login Page</h1>
-      
-        <div>
-          Email
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          Password
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-      
-      <button onClick={handleLogin}>Login</button>
-      <h2 style={{ color: "red" }}>{message}</h2>{" "} */}
+
     </div>
   );
 };

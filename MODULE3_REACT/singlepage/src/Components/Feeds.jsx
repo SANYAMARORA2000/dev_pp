@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../context/AuthProvider";
-import {Button} from "@material-ui/core"
+import {Button,Typography} from "@material-ui/core"
 import MusicNote from "@material-ui/icons/MusicNote";
 import { firebaseDB, firebaseStorage ,timeStamp} from "../config/firebase";
 import { uuid } from 'uuidv4';
@@ -117,30 +117,37 @@ const Feeds = (props) => {
     return ( 
          
        currentUser?
-        <div className="uploadAudio" style={{backgroundColor:"lightgreen",}}>
+        <div className="uploadAudio" style={{backgroundColor:"lightgreen", backgroundImage: "url(" + "https://i.pinimg.com/originals/ce/e1/21/cee121ba4cbe2a548edee570dbb2cb55.jpg" + ")",
+        backgroundSize: 'cover'}}>
          
         
-         <div >
-              <div>
-                  <input  type="file"  onChange={handleInputFile}/>
+         <div style={{display:"flex",justifyContent:"space-between"}} >
+              <div >
+                  <input style={{color:"white"}} type="file"  onChange={handleInputFile}/>
                   <label>
                       <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
                   </label>
+                  <Typography style={{color:"white"}} variant="h5">Welcome back !!</Typography>
+                  <Typography style={{color:"white"}} variant="h5">Upload your latest song</Typography>
+                  
               </div>
+              <div>
+              <Button variant="contained" color="secondary" size="small"onClick={handleLogout}>LOG OUT</Button>
+              </div>
+              
           </div>
                 <div className="feed-audio-list">
                 {posts.map(postObj=>{
                   return <AudioPost key={postObj.pid} postObj={postObj}></AudioPost>
                 })}
               </div>
-              <Button variant="contained" color="secondary" size="small"onClick={handleLogout}>LOG OUT</Button>
+             
         </div> :
 
-         <div className="uploadAudio" style={{backgroundColor:"lightgreen" , 
+         <div className="uploadAudio" style={{
          backgroundImage: "url(" + "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" + ")",
-         backgroundPosition: 'center',
-         backgroundSize: 'cover',
-         backgroundRepeat: 'no-repeat'}}>
+         backgroundSize: 'cover'
+         }}>
          
         
          <div >

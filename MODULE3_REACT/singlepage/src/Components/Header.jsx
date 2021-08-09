@@ -28,7 +28,7 @@ const Header =  () => {
      },
      loginbutton:
      {
-        height:"6vh" ,
+        height:"6vh",
         marginTop:"2vh"
      }
      
@@ -38,8 +38,7 @@ const Header =  () => {
 const handleprofile=()=>{
     console.log(currentUser.uid);
     console.log(currentUser.email);
-    let doc=firebaseDB.collection("users").doc(currentUser.email).get()
-    console.log(doc.data());
+    
     
      
 }
@@ -48,12 +47,15 @@ const handleprofile=()=>{
    
     return (
         currentUser ? 
-            <div style={{backgroundColor:"red"}}>
+            <div className={classes.headerdiv}>
+            <Link to="/">
             <img src="https://www.pluginboutique.com/ckeditor_assets/pictures/16607/content_playbeat_logo_pluginboutique.png" className={classes.imgheader} />
+            </Link>
             
-           <Button variant="contained" color="primary" onClick={handleprofile}>
+           <Button variant="contained" color="primary" onClick={handleprofile} className={classes.loginbutton}>
                     <Link style={{color:"white"}}to="/profile">Profile</Link>
            </Button>
+           
         
           </div> :
           <div className={classes.headerdiv}>
