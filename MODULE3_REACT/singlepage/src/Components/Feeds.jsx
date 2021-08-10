@@ -123,7 +123,7 @@ const Feeds = (props) => {
         
          <div style={{display:"flex",justifyContent:"space-between"}} >
               <div >
-                  <input style={{color:"white"}} type="file"  onChange={handleInputFile}/>
+                  <input style={{color:"white"}} type="file" accept="audio/*" onChange={handleInputFile}/>
                   <label>
                       <Button onClick={handleUploadFile} variant="contained" color="secondary" startIcon={<MusicNote></MusicNote>}>UPLOAD</Button>
                   </label>

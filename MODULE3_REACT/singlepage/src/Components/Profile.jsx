@@ -9,7 +9,7 @@ const Profile = (props) => {
     
     backgroundpic:
     {
-      height:"100vh", 
+       height:"100vh",
        backgroundImage: "url(" + "https://www.dudleynews.co.uk/resources/images/3051716/" + ")",
       backgroundSize: 'cover'
     },
@@ -77,31 +77,39 @@ const Profile = (props) => {
     useEffect(async ()=>{
         //when you first come at feed bring all posts
        
-        let doc=await firebaseDB.collection("users").doc(currentUser.uid).get();
-        let user=doc.data();
-        firebaseDB.collection("posts").orderBy("createdAt","desc")
-        .onSnapshot((snapshot)=>{
-          let allPosts=snapshot.docs.map( (doc)=>{
-            return doc.data();
+        if(currentUser)
+        {
+          let doc=await firebaseDB.collection("users").doc(currentUser.uid).get();
+          let user=doc.data();
+          firebaseDB.collection("posts").orderBy("createdAt","desc")
+          .onSnapshot((snapshot)=>{
+            let allPosts=snapshot.docs.map( (doc)=>{
+              return doc.data();
+            });
+            console.log(allPosts);
+            let filteredobj=[];
+            allPosts.map(postObj=>{
+                if(postObj.uid==currentUser.uid)
+                {
+                  filteredobj.push(postObj);
+                }
+            
+            })
+            
+            console.log(filteredobj);
+            
+            
+            setPosts(filteredobj);
+            setUser(user);
+           
           });
-          console.log(allPosts);
-          let filteredobj=[];
-          allPosts.map(postObj=>{
-              if(postObj.uid==currentUser.uid)
-              {
-                filteredobj.push(postObj);
-              }
-          
-          })
-          
-          console.log(filteredobj);
-          
-          
-          setPosts(filteredobj);
-          setUser(user);
-         
-        });
-      },[]);
+        }
+        else
+        {
+          return;
+        }
+       
+      });
 
       console.log(posts)
     return ( 
