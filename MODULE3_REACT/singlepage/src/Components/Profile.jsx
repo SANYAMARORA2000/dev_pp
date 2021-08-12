@@ -9,7 +9,7 @@ const Profile = (props) => {
     
     backgroundpic:
     {
-       height:"100vh",
+       height:"100rem",
        backgroundImage: "url(" + "https://www.dudleynews.co.uk/resources/images/3051716/" + ")",
       backgroundSize: 'cover'
     },

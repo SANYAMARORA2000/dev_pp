@@ -117,7 +117,7 @@ const Feeds = (props) => {
     return ( 
          
        currentUser?
-        <div className="uploadAudio" style={{backgroundColor:"lightgreen", backgroundImage: "url(" + "https://i.pinimg.com/originals/ce/e1/21/cee121ba4cbe2a548edee570dbb2cb55.jpg" + ")",
+        <div className="uploadAudio" style={{height:"100rem", backgroundImage: "url(" + "https://i.pinimg.com/originals/ce/e1/21/cee121ba4cbe2a548edee570dbb2cb55.jpg" + ")",
         backgroundSize: 'cover'}}>
          
         
@@ -145,6 +145,7 @@ const Feeds = (props) => {
         </div> :
 
          <div className="uploadAudio" style={{
+          height:"100rem",
          backgroundImage: "url(" + "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" + ")",
          backgroundSize: 'cover'
          }}>

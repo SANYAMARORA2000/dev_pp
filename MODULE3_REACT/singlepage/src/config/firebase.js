@@ -3,12 +3,15 @@ import firebase from "firebase";
 
 
 let firebaseConfig = {
-    apiKey: "AIzaSyDIdzOG-KZLM07vUr0eUqEGhY5ISb9YMzY",
-    authDomain: "react-login-15c66.firebaseapp.com",
-    projectId: "react-login-15c66",
-    storageBucket: "react-login-15c66.appspot.com",
-    messagingSenderId: "37758266636",
-    appId: "1:37758266636:web:aebe1a073d508f64ecad29"
+
+  apiKey: "AIzaSyDh1lsH8DOeA43bXVn0Eoee3C_oa2XL-6c",
+  authDomain: "musicplayer-login-229c1.firebaseapp.com",
+  projectId: "musicplayer-login-229c1",
+  storageBucket: "musicplayer-login-229c1.appspot.com",
+  messagingSenderId: "1089423919213",
+  appId: "1:1089423919213:web:3b6e581c868a4cb8a69764"
+
+   
   };
 
   let firebaseApp=firebase.initializeApp(firebaseConfig);
