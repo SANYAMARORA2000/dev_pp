@@ -9,6 +9,7 @@ const Feeds = (props) => {
     const{signOut}=useContext(AuthContext)
     const [musicFile,setMusicFile]=useState(null);
     const [posts,setPosts]=useState([]);
+    let z=10;
     const {currentUser}=useContext(AuthContext);
     
     const handleLogout = async ()=>{
