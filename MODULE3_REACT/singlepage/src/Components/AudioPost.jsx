@@ -208,13 +208,18 @@ let classes = useStyles();
                 <Typography style={{padding:"3px"}}variant="p">Comments</Typography>
                 <TextField  style={{borderRight:"2px"}} variant="outlined" label="Add a comment" size="small" value={comment} onChange={(e)=>{setComment(e.target.value)}}></TextField>
                 <Button variant="contained" color="secondary" onClick={addCommentToCommentList}>Post</Button>
+                  
 
-                 { commentList.map(commentObj=>{
+                  <div style={{ overflow:"scroll",height:"11rem"}}>
+                  { commentList.map(commentObj=>{
                  return (
-                   <>
-                  <Avatar src={commentObj.profilePic}></Avatar>
-                  <Typography variant="p" >{commentObj.comment}</Typography>
-                  </>
+                
+                        <>
+                        <Avatar  src={commentObj.profilePic}></Avatar>
+                        <Typography  variant="p" >{commentObj.comment}</Typography>
+                        </>
+                 
+                   
                  )
 
                   // <Avatar src={commentObj.profilePic }></Avatar>
@@ -222,7 +227,11 @@ let classes = useStyles();
                           
                 
                  
-                })}
+                })
+                
+                }
+                
+                  </div>
                 
             </Card>
        </Container> :
