@@ -11,10 +11,10 @@ function cb(error,response,data)
     let ch=cheerio.load(data);
      let heading=ch('.js-profile-tab-count-container.UnderlineNav.hx_UnderlineNav li a');
      //console.log(heading);
-     let link=ch(heading[2]).attr("href");
-     //console.log(link);
+     let link=ch(heading[3]).attr("href");
+     console.log(link);
      let completeLink="https://github.com"+link;
-     //console.log(completeLink);
+     console.log(completeLink);
 
      people(completeLink)
 }
