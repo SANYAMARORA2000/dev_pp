@@ -4,7 +4,7 @@ import "./Inter.css";
 import video1 from "./v1.mp4";
 import video2 from "./v2.mp4";
 import video3 from "./v3.mp4";
-
+import video4 from "./v4.mp4";
 
 const IntersectionDemo = () => {
   let conditionObject = {
@@ -48,15 +48,16 @@ const IntersectionDemo = () => {
       <div className="video-container">
         <Video src={video3} id="c"></Video>
       </div>
-     
-      
+      <div className="video-container">
+        <Video src={video4} id="d"></Video>
+      </div>
     </div>
   );
 };
 
 function Video(props) {
   return (
-    <video className="video-styles" controls muted={true} id={props.id}>
+    <video className="video-styles" muted={true} id={props.id} loop={true}>
       <source src={props.src} type="video/mp4"></source>
     </video>
   );

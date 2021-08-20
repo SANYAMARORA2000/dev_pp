@@ -1,24 +1,36 @@
-import React from 'react';
-
-import {Button} from "@material-ui/core"
-
+import React from "react";
+import { Button , IconButton } from "@material-ui/core";
+import {Send , Delete} from "@material-ui/icons"
 const Buttons = () => {
-    return (
+  return (
     <div>
-      
-       <Button variant="contained">hey</Button>
-       <Button variant="outlined">hey</Button>
+      <Button variant="contained">Hello</Button>
+      <Button variant="outlined">Hello</Button>
+      <Button variant="text">Hello</Button>
 
-       <Button variant="text">hey</Button>
-       {/* <Button variant="contained">hey</Button>
-       <Button variant="contained">hey</Button> */}
+      <h2>Color and Event Listener</h2>
+      {/* inline styling */}
+      <Button style={ {marginLeft:"10px" , backgroundColor:"red" , color:"white"}  } variant="contained">Hello</Button>
+      <Button onClick={ ()=> alert("Button Clicked !!!") } variant="contained" color="secondary">Hello</Button>
 
-       {/* inline styling */}
-       <Button style={{marginLeft:"10px",backgroundColor:"red"}}variant="contained">hey</Button>
+      <h2>Icons Inside Buttons</h2>
+      <Button variant="contained" color="primary" startIcon={<Send></Send>}>Send</Button>
+      <Button variant="contained" color="primary" endIcon={<Delete></Delete>}>Delete</Button>
 
-       <Button onClick={()=>alert("button clicked")} variant="contained"  color="secondary">hey</Button>
+      <h2>Size</h2>
+      <Button variant="contained" color="primary" size="small" startIcon={<Send></Send>}>Send</Button>
+      <Button variant="contained" color="primary" size="large" endIcon={<Delete></Delete>}>Delete</Button>
+
+      <h2>Icons</h2>
+
+      <IconButton>
+          <Delete onClick={ ()=> alert("Delete") }></Delete>
+      </IconButton>
+
+    
+    
     </div>
-    );
-}
- 
+  );
+};
+
 export default Buttons;
