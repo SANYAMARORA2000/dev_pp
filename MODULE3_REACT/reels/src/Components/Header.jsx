@@ -21,7 +21,7 @@ const Header =  () => {
      },
      headerdiv:
      {
-       
+        padding:"7px",
         display:"flex",
         justifyContent:"space-between",
        
