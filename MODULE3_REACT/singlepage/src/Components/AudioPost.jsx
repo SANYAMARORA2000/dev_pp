@@ -210,7 +210,7 @@ let classes = useStyles();
                 <Button variant="contained" color="secondary" onClick={addCommentToCommentList}>Post</Button>
                   
 
-                  <div style={{ overflow:"scroll",height:"11rem"}}>
+                  <div style={{ overflow:"auto",height:"12rem"}}>
                   { commentList.map(commentObj=>{
                  return (
                 

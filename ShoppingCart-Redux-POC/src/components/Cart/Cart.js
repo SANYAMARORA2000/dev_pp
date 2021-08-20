@@ -136,7 +136,8 @@ function Cart1({cart}) {
         </>
     )
 }
-const mapStateToProps = (state) => {
+const mapStateToPr
+ops = (state) => {
   return {
     cart: state.shop.cart,
   };
