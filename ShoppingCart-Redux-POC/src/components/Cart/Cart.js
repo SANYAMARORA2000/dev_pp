@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './Cart.css';
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 import CartItem from './CartItem/CartItem';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -125,9 +126,12 @@ function Cart1({cart}) {
         </>
         
         <div className='checkout'>
+         <Link to="/buynow">
         <Button variant="contained" color="primary">
-          Proceed To Buy
+          Proceed To Buy 
         </Button>
+        </Link>
+
         </div>
             </div>
             </div>
@@ -136,8 +140,7 @@ function Cart1({cart}) {
         </>
     )
 }
-const mapStateToPr
-ops = (state) => {
+const mapStateToProps = (state) => {
   return {
     cart: state.shop.cart,
   };

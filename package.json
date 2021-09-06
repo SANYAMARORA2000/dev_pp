@@ -19,6 +19,7 @@
   "homepage": "https://github.com/SANYAMARORA2000/dev_pp#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
+    "express": "^4.17.1",
     "nodemailer": "^6.6.1",
     "puppeteer": "^8.0.0",
     "request": "^2.88.2"

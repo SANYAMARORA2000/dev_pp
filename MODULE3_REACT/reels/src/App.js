@@ -8,7 +8,6 @@ import {
 import Header from "./Components/Header";
 import Feeds from "./Components/Feeds";
 import Login from "./Components/Login";
-import Profile from "./Components/Profile";
 import Signup from "./Components/Signup";
 import { AuthContext, AuthProvider } from "./context/AuthProvider";
 
