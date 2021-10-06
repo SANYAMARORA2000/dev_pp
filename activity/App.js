@@ -1,34 +1,9 @@
-let obj = {
-    a: {
-      b: { e: { string: "string" } },
-      c: { boolean: true },
-    },
-    d: {
-      f: {
-        g: {
-          h: { null: null },
-          i: { undefined: "defined" },
-        },
-      },
-    },
-  };
-  
-  let {
-    a: {
-      b: {
-        e: { string },
-      },
-    },
-  } = obj;
-  
-  let {
-    d: {
-      f: {
-        g: {
-          i: { undefined },
-        },
-      },
-    },
-  } = obj;
-  
-  console.log(string);
+ getname();
+ console.log(x);
+
+ var x=7;
+
+ function getname()
+ {
+   console.log("hello");
+ }
