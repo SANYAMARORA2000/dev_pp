@@ -1,10 +1,11 @@
-import UseEffect from "./Components/UseEffect";
-
+import Header from "./Components/Header";
+import Heading from "./Components/Heading";
 
 function App() {
   return (
     <div className="App">
-     <UseEffect></UseEffect>
+      <Heading></Heading>
+     <Header></Header>
     </div>
   );
 }
