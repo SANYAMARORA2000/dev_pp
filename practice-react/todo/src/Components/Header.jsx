@@ -29,6 +29,7 @@ const Header = () => {
     const[modalisopen,setmodalisopen]=useState(false);
     const[modalisopen1,setmodalisopen1]=useState(false);
     const[searchterm,setsearchterm]=useState("")
+    const[helparr,sethelparr]=useState([]);
    
 
     useEffect(()=>{
@@ -64,6 +65,24 @@ const Header = () => {
         
       
         
+    }
+    const helper=(id)=>
+    {
+        console.log(id);
+        let upd=[];
+        for(let i=0;i<arr.length;i++)
+        {
+            let obj1=arr[i]
+          
+            if(obj1.newobj.id==id)
+            {
+                upd.push(obj1);
+            }
+        }
+      console.log(upd)
+      sethelparr(upd);
+      console.log(helparr)
+     
     }
     
 
@@ -110,20 +129,7 @@ const Header = () => {
            </Modal>
           
             
-           {/* <div class="task-input">
-
-                <input type="text" placeholder="vehicleNumber" value={vehiclenum}  onChange={(e)=>{setvehiclenum(e.target.value)
-                }}/>
-                  <input type="text" placeholder="vehicleType" value={vehicletype}  onChange={(e)=>{setvehicletype(e.target.value)
-                }}/>
-                <input type="text" placeholder="vehicleModel" value={vehiclemodel}  onChange={(e)=>{setvehiclemodel(e.target.value)
-                }}/>
-                  <input type="text" placeholder="phoneNumber" value={phonenumer}  onChange={(e)=>{setphonenumer(e.target.value)
-                }}/>
-                 <input type="text" placeholder="customername" value={customername}  onChange={(e)=>{setcustomername(e.target.value)
-                }}/>
-               <button onClick={handletask}>checkin</button>
-           </div> */}
+       
              <div class="task-display">
                 {
                    arr.map((taskObj)=>{
@@ -133,7 +139,17 @@ const Header = () => {
                         {taskObj.newobj.vehiclemodel}
                         {taskObj.newobj.phonenumer}
                         {taskObj.newobj.customername}
-                        <button  onClick={()=>{handlecheckout(taskObj.newobj.id) }} >checkout</button>
+                        <button  onClick={()=>{setmodalisopen1(true) 
+                        helper(taskObj.newobj.id)}} >checkout</button>
+                             <Modal isOpen={modalisopen1} onRequestClose={()=>setmodalisopen1(false)}>
+                                 
+                             <p>{helparr[0].newobj.vehiclenum}</p>
+                             <p>{helparr[0].newobj.vehicletype}</p>
+                             <p>{helparr[0].newobj.vehiclemodel}</p>
+                             <p>{helparr[0].newobj.phonenumer}</p>
+                             <p>{helparr[0].newobj.customername}</p>
+                             <button onClick={()=>handlecheckout(taskObj.newobj.id)}>checkout</button>
+                             </Modal>
                         
                         </div>;
                         
