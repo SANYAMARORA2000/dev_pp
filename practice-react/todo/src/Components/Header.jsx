@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState} from 'react';
 import Modal from 'react-modal';
-
+import "./Header.css"
 
 Modal.setAppElement('#root');
 const getlocalitems=()=>{
@@ -54,7 +54,7 @@ const Header = () => {
         {
             let obj1=arr[i]
           
-            if(obj1.newobj.id!=id)
+            if(obj1.id!=id)
             {
                 updated.push(obj1);
             }
@@ -66,22 +66,25 @@ const Header = () => {
       
         
     }
+    let upd=[];
     const helper=(id)=>
     {
         console.log(id);
-        let upd=[];
+     
         for(let i=0;i<arr.length;i++)
         {
             let obj1=arr[i]
-          
-            if(obj1.newobj.id==id)
+            console.log(obj1.id)
+            if(obj1.id==id)
             {
                 upd.push(obj1);
             }
         }
-      console.log(upd)
-      sethelparr(upd);
-      console.log(helparr)
+   
+        console.log(upd);
+    //   sethelparr(upd);
+    //   console.log(helparr);   
+    //   console.log("hello")
      
     }
     
@@ -91,7 +94,8 @@ const Header = () => {
         let newobj={id:Date.now(),vehiclenum:vehiclenum,vehicletype:vehicletype,vehiclemodel:vehiclemodel,phonenumer:phonenumer,customername:customername}
         console.log(newobj);
         setobj(newobj)
-        let newarr=[...arr,{newobj:newobj}];
+        console.log(obj);
+        let newarr=[...arr,newobj];
         setarr(newarr);
         console.log(newarr);
         setvehiclenum("")
@@ -113,15 +117,15 @@ const Header = () => {
            <Modal isOpen={modalisopen} onRequestClose={()=>setmodalisopen(false)}>
            <div class="task-input">
 
-                    <input type="text" placeholder="vehicleNumber" value={vehiclenum}  onChange={(e)=>{setvehiclenum(e.target.value)
+                    <input type="text" className="input-style" placeholder="vehicleNumber" value={vehiclenum}  onChange={(e)=>{setvehiclenum(e.target.value)
                     }}/>
-                    <input type="text" placeholder="vehicleType" value={vehicletype}  onChange={(e)=>{setvehicletype(e.target.value)
+                    <input type="text" className="input-style" placeholder="vehicleType" value={vehicletype}  onChange={(e)=>{setvehicletype(e.target.value)
                     }}/>
-                    <input type="text" placeholder="vehicleModel" value={vehiclemodel}  onChange={(e)=>{setvehiclemodel(e.target.value)
+                    <input type="text" className="input-style" placeholder="vehicleModel" value={vehiclemodel}  onChange={(e)=>{setvehiclemodel(e.target.value)
                     }}/>
-                    <input type="text" placeholder="phoneNumber" value={phonenumer}  onChange={(e)=>{setphonenumer(e.target.value)
+                    <input type="text" className="input-style" placeholder="phoneNumber" value={phonenumer}  onChange={(e)=>{setphonenumer(e.target.value)
                     }}/>
-                    <input type="text" placeholder="customername" value={customername}  onChange={(e)=>{setcustomername(e.target.value)
+                    <input type="text" className="input-style" placeholder="customername" value={customername}  onChange={(e)=>{setcustomername(e.target.value)
                     }}/>
                     <button onClick={handletask}>checkin</button>
                     </div>
@@ -133,22 +137,20 @@ const Header = () => {
              <div class="task-display">
                 {
                    arr.map((taskObj)=>{
-                    return <div className="task-div" key={taskObj.newobj.id}>
-                        {taskObj.newobj.vehiclenum} 
-                        {taskObj.newobj.vehicletype}
-                        {taskObj.newobj.vehiclemodel}
-                        {taskObj.newobj.phonenumer}
-                        {taskObj.newobj.customername}
+                    return <div className="task-div" key={taskObj.id}>
+                        {taskObj.vehiclenum} 
+                        {taskObj.vehicletype}
+                        {taskObj.vehiclemodel}
+                        {taskObj.phonenumer}
+                        {taskObj.customername}
                         <button  onClick={()=>{setmodalisopen1(true) 
-                        helper(taskObj.newobj.id)}} >checkout</button>
+                        helper(taskObj.id)}} >checkout</button>
                              <Modal isOpen={modalisopen1} onRequestClose={()=>setmodalisopen1(false)}>
-                                 
-                             <p>{helparr[0].newobj.vehiclenum}</p>
-                             <p>{helparr[0].newobj.vehicletype}</p>
-                             <p>{helparr[0].newobj.vehiclemodel}</p>
-                             <p>{helparr[0].newobj.phonenumer}</p>
-                             <p>{helparr[0].newobj.customername}</p>
-                             <button onClick={()=>handlecheckout(taskObj.newobj.id)}>checkout</button>
+                                 {
+                                     console.log(upd)
+                                 }
+                             {/* <p>{upd[0].id}</p> */}
+                             <button onClick={()=>handlecheckout(taskObj.id)}>checkout</button>
                              </Modal>
                         
                         </div>;
