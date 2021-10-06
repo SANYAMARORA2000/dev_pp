@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState} from 'react';
 import Modal from 'react-modal';
-import './Header.css';
+
 
 Modal.setAppElement('#root');
 const getlocalitems=()=>{
@@ -43,14 +43,25 @@ const Header = () => {
        setarr(newlist);
     }
 
-    const handlecheckout=()=>
+    const handlecheckout=(id)=>
     {
-        setmodalisopen1(true)
-        console.log("hello");
-       
-        <Modal isOpen={modalisopen1}>
-            <h1>hello</h1>
-        </Modal>
+        
+        console.log(id);
+        console.log(arr)
+        let updated=[];
+        for(let i=0;i<arr.length;i++)
+        {
+            let obj1=arr[i]
+          
+            if(obj1.newobj.id!=id)
+            {
+                updated.push(obj1);
+            }
+        }
+        console.log(updated)
+        setarr(updated);
+        
+        
       
         
     }
@@ -74,7 +85,9 @@ const Header = () => {
     }
 
        
-    return ( <div class="task-container">
+    return ( <div className="task-container">
+
+         
            <input type="text" placeholder="Search" onChange={(e)=>{setsearchterm(e.target.value)}} />
            
            <button onClick={()=>{setmodalisopen(true)}}>checkin</button>
@@ -95,6 +108,7 @@ const Header = () => {
                     </div>
                     <button onClick={()=>{setmodalisopen(false)}}>close</button>
            </Modal>
+          
             
            {/* <div class="task-input">
 
@@ -119,8 +133,10 @@ const Header = () => {
                         {taskObj.newobj.vehiclemodel}
                         {taskObj.newobj.phonenumer}
                         {taskObj.newobj.customername}
-                        <button onClick={handlecheckout}  >checkout</button>
+                        <button  onClick={()=>{handlecheckout(taskObj.newobj.id) }} >checkout</button>
+                        
                         </div>;
+                        
                    })
                 }
            </div>
