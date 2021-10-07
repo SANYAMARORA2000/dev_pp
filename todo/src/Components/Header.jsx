@@ -163,7 +163,6 @@ const Header = (props) => {
          <button className="searchw" onClick={handlesearch}>Get Search Result</button>
            
            <button className="searchw"  className="check-in" onClick={()=>{setmodalisopen(true)}}>+ Check In</button>
-           <button className="sign-out">Sign Out</button>
            <Modal isOpen={modalisopen} onRequestClose={()=>setmodalisopen(false)}>
            <div class="task-input">
 
