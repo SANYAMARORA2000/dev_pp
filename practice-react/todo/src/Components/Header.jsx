@@ -88,7 +88,7 @@ const Header = (props) => {
         }
         console.log(updated)
         setarr(updated);
-        alert("Your car will reach the doorstep in the next 5 minutes");
+        alert("Payment Successful  Your car will reach the doorstep in the next 5 minutes");
        
         
       
@@ -118,7 +118,7 @@ const Header = (props) => {
         console.log(upd);
       sethelparr(upd);
       console.log(helparr);   
-      console.log("hello")
+      console.log("Payment Successful hello")
      
     }
     
@@ -206,7 +206,7 @@ const Header = (props) => {
                                         <td>{taskObj.time}</td>
                                     </tr>
                                     <button  className="check-in" onClick={()=>{setmodalisopen1(true) 
-                        helper(taskObj.id)}} >checkout</button>
+                        helper(taskObj.id)}} >- Checkout</button>
                      </table>
                                 
                        
@@ -229,7 +229,9 @@ const Header = (props) => {
                                             <td>{cust}</td>
                                             <td>{t}</td>
                                         </tr>
-                                        <button className="check-in" onClick={()=>handlecheckout(taskObj.id)}>checkout</button>
+                                        <h3>To pay</h3>
+                                        <h3>Rs 80</h3>
+                                        <button className="check-in" onClick={()=>handlecheckout(taskObj.id)}>Proceed to Pay</button>
                                    </table>
 
                                     
