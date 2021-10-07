@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState,useRef} from 'react';
 import Modal from 'react-modal';
 import "./Header.css"
 
@@ -17,8 +17,10 @@ const getlocalitems=()=>{
         return [];
     }
 }
-const Header = () => {
-  
+const Header = (props) => {
+     
+    const inputEl=useRef("")
+    const[time,settime]=useState()
     const[vehiclenum,setvehiclenum]=useState()
     const[vehicletype,setvehicletype]=useState()
     const[vehiclemodel,setvehiclemodel]=useState()
@@ -28,21 +30,46 @@ const Header = () => {
     const[arr,setarr]=useState(getlocalitems());
     const[modalisopen,setmodalisopen]=useState(false);
     const[modalisopen1,setmodalisopen1]=useState(false);
-    const[searchterm,setsearchterm]=useState("")
+    const[searchterm,setsearchterm]=useState("");
+    const[searchresult,setsearchresult]=useState([]);
     const[helparr,sethelparr]=useState([]);
+    const[id,setid]=useState();
+    const[cust,setcust]=useState("");
+    const[vehnum,setvehnum]=useState("");
+    const[vehtype,setvehtype]=useState("");
+    const[vehmodel,setvehmodel]=useState("");
+    const[num,setnum]=useState("");
+    const[t,sett]=useState("");
+    
+
    
 
     useEffect(()=>{
       localStorage.setItem('lists',JSON.stringify(arr));
     },[arr])
+
+    const searchHandler=(searchterm)=>{
+        setsearchterm(searchterm);
+        console.log(searchterm);
+        if(searchterm!=="")
+        {
+            const newlist1=arr.filter((obj)=>{
+                return Object.values(obj).join("").toLowerCase().includes(searchterm.toLowerCase());
+            })
+            console.log(newlist1)
+            setsearchresult(newlist1);
+            console.log(searchresult)
+        }
+        else
+        {
+            setsearchresult(arr);
+        }
+       
+       
+      }
    
       
-    const handledelete=(index)=>
-    {
-       var newlist=[...arr];
-       newlist.splice(index,1);
-       setarr(newlist);
-    }
+  
 
     const handlecheckout=(id)=>
     {
@@ -61,7 +88,8 @@ const Header = () => {
         }
         console.log(updated)
         setarr(updated);
-        
+        alert("Your car will reach the doorstep in the next 5 minutes");
+       
         
       
         
@@ -69,33 +97,43 @@ const Header = () => {
     let upd=[];
     const helper=(id)=>
     {
+        setid(id);
         console.log(id);
-     
+    
         for(let i=0;i<arr.length;i++)
         {
             let obj1=arr[i]
             console.log(obj1.id)
             if(obj1.id==id)
             {
-                upd.push(obj1);
+                setvehnum(obj1.vehiclenum);
+                setvehtype(obj1.vehicletype);
+                setvehmodel(obj1.vehiclemodel);
+                setnum(obj1.phonenumer)
+               setcust(obj1.customername);
+               sett(obj1.time);
             }
         }
    
         console.log(upd);
-    //   sethelparr(upd);
-    //   console.log(helparr);   
-    //   console.log("hello")
+      sethelparr(upd);
+      console.log(helparr);   
+      console.log("hello")
      
     }
     
 
     const handletask=()=>{
         console.log()
-        let newobj={id:Date.now(),vehiclenum:vehiclenum,vehicletype:vehicletype,vehiclemodel:vehiclemodel,phonenumer:phonenumer,customername:customername}
+        
+        let newobj={id:Date.now(),vehiclenum:vehiclenum,vehicletype:vehicletype,vehiclemodel:vehiclemodel,phonenumer:phonenumer,customername:customername,time:time}
         console.log(newobj);
         setobj(newobj)
         console.log(obj);
         let newarr=[...arr,newobj];
+      
+        console.log(searchterm.length)
+        setarr(newarr);
         setarr(newarr);
         console.log(newarr);
         setvehiclenum("")
@@ -106,14 +144,25 @@ const Header = () => {
      
 
     }
+     const handlesearch=()=>
+     {
+        let newlist=[...arr];
+    
+        setarr(searchterm.length<1?newlist:searchresult);
+    
 
+        
+     }
        
     return ( <div className="task-container">
 
          
-           <input type="text" placeholder="Search" onChange={(e)=>{setsearchterm(e.target.value)}} />
+           <input type="text" className="searchw"placeholder="Search"  value={searchterm} onChange={(e)=>{setsearchterm(e.target.value) 
            
-           <button onClick={()=>{setmodalisopen(true)}}>checkin</button>
+        searchHandler(e.target.value)}} />
+         <button className="searchw" onClick={handlesearch}>Get Search Result</button>
+           
+           <button className="searchw"  className="check-in" onClick={()=>{setmodalisopen(true)}}>+ Check In</button>
            <Modal isOpen={modalisopen} onRequestClose={()=>setmodalisopen(false)}>
            <div class="task-input">
 
@@ -127,9 +176,11 @@ const Header = () => {
                     }}/>
                     <input type="text" className="input-style" placeholder="customername" value={customername}  onChange={(e)=>{setcustomername(e.target.value)
                     }}/>
-                    <button onClick={handletask}>checkin</button>
+                     <input type="text" className="input-style" placeholder="time" value={time}  onChange={(e)=>{setcustomername(e.target.value)
+                    }}/>
+                    <button className="check-in" onClick={handletask}>+ Check-in</button>
                     </div>
-                    <button onClick={()=>{setmodalisopen(false)}}>close</button>
+                    <button className="check-in" onClick={()=>{setmodalisopen(false)}}>Close</button>
            </Modal>
           
             
@@ -138,25 +189,65 @@ const Header = () => {
                 {
                    arr.map((taskObj)=>{
                     return <div className="task-div" key={taskObj.id}>
-                        {taskObj.vehiclenum} 
-                        {taskObj.vehicletype}
-                        {taskObj.vehiclemodel}
-                        {taskObj.phonenumer}
-                        {taskObj.customername}
-                        <button  onClick={()=>{setmodalisopen1(true) 
+                     <table className="head">
+                                  <tr className="head">
+                                    <th className="heading-table">Vehicle No</th>
+                                    <th className="heading-table">Vehicle Model</th>
+                                    <th className="heading-table" >Vehicle Type</th>
+                                    <th className="heading-table" >Phone</th>
+                                    <th className="heading-table" >Check in</th>
+                                  </tr>
+                                  <tr className="head">
+                                        <td>{taskObj.vehiclenum}</td>
+                                        <td>{taskObj.vehicletype}</td>
+                                        <td> {taskObj.vehiclemodel}</td>
+                                        <td>{taskObj.phonenumer}</td>
+                                        <td>{taskObj.customername}</td>
+                                        <td>{taskObj.time}</td>
+                                    </tr>
+                                    <button  className="check-in" onClick={()=>{setmodalisopen1(true) 
                         helper(taskObj.id)}} >checkout</button>
+                     </table>
+                                
+                       
+                      
                              <Modal isOpen={modalisopen1} onRequestClose={()=>setmodalisopen1(false)}>
                                  {
-                                     console.log(upd)
+                                      <table className="head">
+                                      <tr className="head">
+                                        <th className="heading-table">Vehicle No</th>
+                                        <th className="heading-table">Vehicle Model</th>
+                                        <th className="heading-table" >Vehicle Type</th>
+                                        <th className="heading-table" >Phone</th>
+                                        <th className="heading-table" >Check in</th>
+                                      </tr>
+                                      <tr className="head">
+                                            <td>{vehnum}</td>
+                                            <td>{vehtype}</td>
+                                            <td>{vehmodel}</td>
+                                            <td>{num}</td>
+                                            <td>{cust}</td>
+                                            <td>{t}</td>
+                                        </tr>
+                                        <button className="check-in" onClick={()=>handlecheckout(taskObj.id)}>checkout</button>
+                                   </table>
+
+                                    
                                  }
-                             {/* <p>{upd[0].id}</p> */}
-                             <button onClick={()=>handlecheckout(taskObj.id)}>checkout</button>
+                            
                              </Modal>
                         
                         </div>;
                         
+                        
                    })
+                   
+                
                 }
+              
+               
+                
+                
            </div>
     </div>)
 }
