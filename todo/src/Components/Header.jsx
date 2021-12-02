@@ -1,7 +1,9 @@
 
 import React, { useEffect, useState,useRef} from 'react';
 import Modal from 'react-modal';
-import "./Header.css"
+import "./Header.css";
+import { v4 as uuidv4 } from 'uuid';
+
 
 Modal.setAppElement('#root');
 const getlocalitems=()=>{
@@ -35,6 +37,7 @@ const Header = (props) => {
     const[helparr,sethelparr]=useState([]);
     const[id,setid]=useState();
     const[cust,setcust]=useState("");
+    const[uniqueid,setuniqueid]=useState("");
     const[vehnum,setvehnum]=useState("");
     const[vehtype,setvehtype]=useState("");
     const[vehmodel,setvehmodel]=useState("");
@@ -124,18 +127,17 @@ const Header = (props) => {
     
 
     const handletask=()=>{
-        console.log()
         
-        let newobj={id:Date.now(),vehiclenum:vehiclenum,vehicletype:vehicletype,vehiclemodel:vehiclemodel,phonenumer:phonenumer,customername:customername,time:time}
+        
+        let newobj={id:uuidv4(),vehiclenum:vehiclenum,vehicletype:vehicletype,vehiclemodel:vehiclemodel,phonenumer:phonenumer,customername:customername,time:time}
         console.log(newobj);
         setobj(newobj)
         console.log(obj);
         let newarr=[...arr,newobj];
       
-        console.log(searchterm.length)
         setarr(newarr);
         setarr(newarr);
-        console.log(newarr);
+       
         setvehiclenum("")
         setvehicletype("")
         setvehiclemodel("")
@@ -163,6 +165,7 @@ const Header = (props) => {
          <button className="searchw" onClick={handlesearch}>Get Search Result</button>
            
            <button className="searchw"  className="check-in" onClick={()=>{setmodalisopen(true)}}>+ Check In</button>
+           <button className="sign-out">Sign Out</button>
            <Modal isOpen={modalisopen} onRequestClose={()=>setmodalisopen(false)}>
            <div class="task-input">
 
@@ -176,7 +179,7 @@ const Header = (props) => {
                     }}/>
                     <input type="text" className="input-style" placeholder="customername" value={customername}  onChange={(e)=>{setcustomername(e.target.value)
                     }}/>
-                     <input type="text" className="input-style" placeholder="time" value={time}  onChange={(e)=>{setcustomername(e.target.value)
+                     <input type="text" className="input-style" placeholder="time" value={time}  onChange={(e)=>{settime(e.target.value)
                     }}/>
                     <button className="check-in" onClick={handletask}>+ Check-in</button>
                     </div>
@@ -191,13 +194,16 @@ const Header = (props) => {
                     return <div className="task-div" key={taskObj.id}>
                      <table className="head">
                                   <tr className="head">
+                                     <th className="heading-table">id</th>
                                     <th className="heading-table">Vehicle No</th>
                                     <th className="heading-table">Vehicle Model</th>
                                     <th className="heading-table" >Vehicle Type</th>
                                     <th className="heading-table" >Phone</th>
+                                    <th className="heading-table" >Name</th>
                                     <th className="heading-table" >Check in</th>
                                   </tr>
                                   <tr className="head">
+                                        <td>{taskObj.id}</td>
                                         <td>{taskObj.vehiclenum}</td>
                                         <td>{taskObj.vehicletype}</td>
                                         <td> {taskObj.vehiclemodel}</td>
@@ -215,13 +221,16 @@ const Header = (props) => {
                                  {
                                       <table className="head">
                                       <tr className="head">
+                                       <th className="heading-table">id</th>
                                         <th className="heading-table">Vehicle No</th>
                                         <th className="heading-table">Vehicle Model</th>
                                         <th className="heading-table" >Vehicle Type</th>
                                         <th className="heading-table" >Phone</th>
-                                        <th className="heading-table" >Check in</th>
+                                        <th className="heading-table" >Name</th>
+                                        <th className="heading-table" >Time</th>
                                       </tr>
                                       <tr className="head">
+                                            <td>{uniqueid}</td>
                                             <td>{vehnum}</td>
                                             <td>{vehtype}</td>
                                             <td>{vehmodel}</td>

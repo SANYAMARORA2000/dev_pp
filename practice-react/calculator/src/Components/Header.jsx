@@ -49,9 +49,7 @@ const Header = () => {
              <button onClick={handleans}>=</button>
 
         </div>
-        <div className="output">
-            
-        </div>
+       
     </div>);
 }
  

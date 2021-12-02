@@ -29,6 +29,15 @@
 .heading-table
 {
     padding: 9px;
-    border: 1px solid black;
+ 
     border-radius: 18px;
+}
+.sign-out
+{
+    margin-left: 50vw;
+    background-color: pink;
+    padding: 12px;
+    border: 1px solid black;
+    
+    border-radius: 17px;
 }

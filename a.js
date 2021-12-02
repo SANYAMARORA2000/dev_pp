@@ -1,11 +1,9 @@
-var counter=function(arr)
-{
-   return 'there are '+arr.length+' elements';
-}
+var arr=[1,3,9,7,10];
+console.log(arr[0]);
 
-var adder=function(a,b)
-{
-   return a+b;
-}
+var ans=arr.filter((val)=>val%2==0);
+console.log(ans);
 
-module.exports={counter,adder};
+var ans1=arr.find((val)=>val%2==0);
+console.log(ans1);
+
