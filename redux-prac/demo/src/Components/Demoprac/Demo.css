@@ -1,0 +1,440 @@
+.heading-div
+{
+    position: absolute;
+
+}
+
+.style1
+{
+    position: static;
+    width: 12px;
+    height: 22px;
+    left: 8px;
+    top: 2px;
+    
+    /* Heading/H4 */
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    
+    color: #FFFFFF;
+    
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px
+}
+.style2
+{
+    
+    position: static;
+    width: 88px;
+    height: 22px;
+    left: 0px;
+    top: 0px;
+
+    /* Heading/H4 */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    /* Tekie-grey2 */
+
+    color: #333333;
+
+    opacity: 0.45;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 8px;
+
+}
+
+
+
+
+
+
+
+.parent
+{
+    display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 124px;
+height: 26px;
+/* left: 250.4px; */
+top: 23.19px;
+
+}
+.child1{
+    /* Frame 16417 */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 2px 8px;
+
+position: static;
+width: 28px;
+height: 26px;
+left: 96px;
+top: 0px;
+
+/* Functional/Amethyst */
+
+background: #8C61CB;
+border-radius: 56px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+}
+.child2
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 88px;
+height: 22px;
+left: 0px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+}
+
+.parent2
+{
+    
+    width: 851px;
+    height: 42px;
+    left: 404px;
+    top: 15px;
+}
+.sub-parent
+{
+    /* Frame 16441 */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 851px;
+height: 42px;
+left: 404px;
+top: 15px;
+}
+.drop1
+{
+    position: static;
+width: 197px;
+height: 42px;
+left: 654px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 24px;
+}
+.ptag1
+{
+    position: absolute;
+    width: 45px;
+    height: 20px;
+    left: 654px;
+    top: 11px;
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+    
+    
+    color: #333333;
+
+}
+.select1
+{
+  /* Select Box */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 9px 8px 9px 12px;
+
+position: absolute;
+width: 144px;
+height: 42px;
+left: calc(50% - 144px/2 + 353.5px);
+top: calc(50% - 42px/2);
+
+/* Tekie-white */
+
+background: #FFFFFF;
+/* Tekie-grey4 */
+
+border: 1px solid #AAAAAA;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.downarrow
+{
+    position: static;
+    left: 77.78%;
+    right: 5.56%;
+    top: 21.43%;
+    bottom: 21.43%;
+    
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+.drop2
+{
+    position: static;
+    width: 196px;
+    height: 42px;
+    left: 434px;
+    top: 0px;
+    
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 0px 24px;
+}
+.ptag2
+{
+    position: absolute;
+width: 44px;
+height: 20px;
+left: 434px;
+top: 11px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 20px;
+/* identical to box height, or 167% */
+
+
+color: #333333;
+
+
+}
+.select2
+{
+  /* Select Box */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 9px 8px 9px 12px;
+
+position: absolute;
+width: 144px;
+height: 42px;
+left: calc(50% - 144px/2 + 132.5px);
+top: calc(50% - 42px/2);
+
+/* Tekie-white */
+
+background: #FFFFFF;
+/* Tekie-grey4 */
+
+border: 1px solid #AAAAAA;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.drop3
+{
+   
+position: static;
+width: 189px;
+height: 42px;
+left: 221px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 24px;
+}
+.ptag3
+{
+    position: absolute;
+    width: 37px;
+    height: 20px;
+    left: 221px;
+    top: 11px;
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+    
+    
+    color: #333333;
+}
+.select3
+{
+   /* Select Box */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 9px 8px 9px 12px;
+
+position: absolute;
+width: 144px;
+height: 42px;
+left: calc(50% - 144px/2 - 87.5px);
+top: calc(50% - 42px/2);
+
+/* Tekie-white */
+
+background: #FFFFFF;
+/* Tekie-grey4 */
+
+border: 1px solid #AAAAAA;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+.drop4
+{
+   
+position: static;
+width: 197px;
+height: 42px;
+left: 0px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 24px;
+}
+.ptag4
+{
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    left: 0px;
+    top: 11px;
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+    
+    
+    color: #333333;
+    
+}
+.select4
+{
+  /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 9px 8px 9px 12px;
+
+position: absolute;
+width: 144px;
+height: 42px;
+left: calc(50% - 144px/2 - 300.5px);
+top: calc(50% - 42px/2);
+
+/* Tekie-white */
+
+background: #FFFFFF;
+/* Tekie-grey4 */
+
+border: 1px solid #AAAAAA;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+.feed-div
+{
+
+}
