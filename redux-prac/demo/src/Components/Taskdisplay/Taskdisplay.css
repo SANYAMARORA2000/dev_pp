@@ -1,0 +1,688 @@
+.taskdisplay-div
+{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0px 0px;
+    position: absolute;
+    width: 705px;
+    height: 471px;
+    left: 550px;
+    top: 76.02px;
+    
+}
+.bottom
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 690px;
+    height: 433px;
+    left: 0px;
+    top: 38px;
+    
+    background: #FFFFFF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.top
+{
+    position: static;
+    width: 705px;
+    height: 18px;
+    left: 0px;
+    top: 10px;
+    
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 10px 0px;
+}
+.nextslot
+{
+    
+    position: absolute;
+    width: 73px;
+    height: 20px;
+    left: 632px;
+    top: -1px;
+
+}
+.previousslot
+{
+    position: absolute;
+    width: 94px;
+    height: 20px;
+    left: 0px;
+    top: -2px;
+
+}
+.nextslotinnerdiv
+{
+    position: absolute;
+    width: 73px;
+    height: 20px;
+    left: 0px;
+    top: 23px
+
+}
+.nextslotp
+{
+    
+    position: absolute;
+    left: 0%;
+    right: 27.4%;
+    top: 0%;
+    bottom: 0%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+
+    color: #808080;
+}
+.nextsloticon
+{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 55px;
+    top: 13px;
+
+
+}
+.previousslotinnerdiv
+{
+    position: absolute;
+    width: 94px;
+    height: 20px;
+    left: 0px;
+    top: 23px
+
+
+}
+.previousslotp
+{
+    position: absolute;
+    left: 21.28%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+
+    color: #808080;
+
+}
+.previoussloticon
+{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 0px;
+    top: 13px;
+
+}
+
+.line-1
+{
+    position: static;
+    width: 675px;
+    height: 0px;
+    left: 0px;
+    top: 433px;
+    opacity: 0.1;
+    border: 1px solid #000000;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+.line-2
+{
+    position: static;
+    left: 0%;
+    right: 2.17%;
+    top: 47.58%;
+    bottom: 52.42%;
+    width: 675px;
+    opacity: 0.1;
+    border: 1px solid #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.sessiondetails
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+    position: static;
+    width: 690px;
+    height: 195px;
+    left: 0px;
+    top: 222px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.sessiondata
+{
+    
+position: static;
+width: 641px;
+height: 97px;
+left: 24px;
+top: 66px;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.sessiondatabutton
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 7px 12px;
+
+
+width: 144px;
+right: -1px;
+top: 0%;
+margin-left: 32rem;
+
+
+/* Tekie-grey5 */
+
+background: #CCCCCC;
+border-radius: 8px;
+}
+.sessiondatainner-div
+{
+   
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+
+width: 275px;
+height: 72px;
+left: 112px;
+top: 12.49px;
+}
+.sessiondatainner-divp
+{
+    position: static;
+width: 126px;
+left: calc(50% - 126px/2 - 74.5px);
+top: 77.78%;
+bottom: 0%;
+
+/* Body 2 - Medium */
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 133% */
+
+display: flex;
+align-items: center;
+
+/* Gray - 4 */
+
+color: #757575;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 2;
+flex-grow: 0;
+
+}
+.timedate
+{
+    position: static;
+width: 275px;
+height: 24px;
+left: 0px;
+top: 28px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.timedate-div
+{
+   
+   
+    width: 275px;
+    height: 24px;
+    left: 0px;
+    top: 28px;
+}
+.timedate-divp
+{
+  
+left: 0%;
+right: 0%;
+top: 38.89%;
+bottom: 27.78%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 24px;
+/* identical to box height, or 160% */
+
+display: flex;
+align-items: center;
+
+/* Gray - 1 */
+
+color: #212121;
+}
+.confirmation
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 150.01px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.confirmation-p
+{
+    position: static;
+width: 119px;
+height: 14px;
+left: 31.01px;
+top: 5px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #000000;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.imgsize
+{
+    
+width: 96px;
+height: 96px;
+left: 0px;
+top: 0.49px;
+
+}
+
+.studentsdetails
+{
+    /* Student Details */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+
+
+position: static;
+width: 690px;
+height: 190px;
+left: 0px;
+top: 0px;
+
+/* Tekie-white */
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.studentsdata
+{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 642px;
+height: 134px;
+left: 24px;
+top: 24px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.studentsdata-div
+{
+    
+position: static;
+width: 642px;
+height: 100px;
+left: 0px;
+top: 34px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.studentsdata-p
+{
+    
+position: static;
+width: 118px;
+height: 18px;
+left: 0px;
+top: 0px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height, or 112% */
+
+display: flex;
+align-items: center;
+
+/* Gray - 2 */
+
+color: #424242;
+
+opacity: 0.45;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.studentsdatabutton
+{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 7px 12px;
+
+
+width: 127px;
+height: 32px;
+right: 147px;
+top: 15.82px;
+margin-left: 21rem;
+
+/* Tekie-Light-Amethyst */
+
+background: #FAF7FF;
+border-radius: 8px;
+}
+.studentsdatabutton1
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 12px;
+    
+  
+    width: 131px;
+    height: 32px;
+    right: 0px;
+    top: 15.82px;
+    margin-left: 32rem;
+    /* Tekie-grey5 */
+    
+    background: #CCCCCC;
+    border-radius: 8px;
+}
+.studentsdata-info
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+   
+    width: 136.73px;
+    height: 68px;
+    left: 119.2px;
+    top: 15.82px;
+
+
+}
+.studentsdata-infodiv
+{
+    
+position: static;
+width: 126px;
+height: 34px;
+left: 0px;
+top: 34px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.studentsdata-infodiv-p1
+{
+  
+width: 51px;
+height: 12px;
+left: 0px;
+top: 56px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+/* identical to box height, or 120% */
+
+display: flex;
+align-items: center;
+
+/* Gray - 4 */
+
+color: #757575;
+}
+.studentsdata-infodiv-p2
+{
+    
+    width: 126px;
+    height: 18px;
+    left: 0px;
+    top: 34px;
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    
+    color: #000000;
+}
+.studentsdata-infodiv2
+{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 136.73px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.studentsdata-infodiv2-p1
+{
+    position: static;
+width: 106px;
+height: 14px;
+left: 30.73px;
+top: 5px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #000000;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.sessiondetails-text
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 642px;
+height: 18px;
+left: 24px;
+top: 24px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+}
+.sessiondetails-text-p
+{
+    position: static;
+left: 0%;
+right: 81.78%;
+top: 0%;
+bottom: 0%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height, or 112% */
+
+display: flex;
+align-items: center;
+
+/* Gray - 2 */
+
+color: #424242;
+
+opacity: 0.45;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}

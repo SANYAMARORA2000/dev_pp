@@ -3,7 +3,10 @@
     position: absolute;
 
 }
-
+.hello
+{
+    padding: 31px;
+}
 .style1
 {
     position: static;
@@ -82,8 +85,8 @@ padding: 0px;
 position: absolute;
 width: 124px;
 height: 26px;
-/* left: 250.4px; */
-top: 23.19px;
+/* left: 250.4px; 
+ top: 23.19px; */
 
 }
 .child1{
@@ -163,7 +166,7 @@ position: absolute;
 width: 851px;
 height: 42px;
 left: 404px;
-top: 15px;
+/* top: 15px; */
 }
 .drop1
 {

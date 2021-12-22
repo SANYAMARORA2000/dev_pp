@@ -7,7 +7,8 @@ const { Option } = Select;
 
 const Demo = () => {
     return ( 
-        <div>
+        <div class="hello">
+         
                 <div class="heading-div">
                       
                     <div class="parent">
@@ -48,31 +49,8 @@ const Demo = () => {
                        </div>
                    </div>
                       
-                      
-                    {/* <div class="child">
-                       
-                        <div style={{display:"flex"}}>
-                            <div style={{display:"flex"}}>
-                                <p class="ptag">View By</p>
-                               <Select class="drop" style={{left: "calc(50% - 144px/2 - 300.5px)"}} defaultValue="This week"></Select>
-                            </div>
-                            <div style={{display:"flex"}}>
-                                <p class="ptag1">Status</p>
-                               <Select class="drop" style={{left: "calc(50% - 144px/2 - 87.5px)"}} defaultValue="All"></Select>
-                            </div>
-                            <div style={{display:"flex"}}>
-                                <p class="ptag2">Verified</p>
-                               <Select class="drop" style={{left: "calc(50% - 144px/2 + 132.5px)"}} defaultValue="NA"></Select>
-                            </div>
-                            <div style={{display:"flex"}}>
-                                <p class="ptag3">Payslab</p>
-                               <Select class="drop" style={{left: "calc(50% - 144px/2 + 353.5px)"}} defaultValue="All"></Select>
-                            </div>
-                            
-                        </div>
-                        
-                    </div> */}
-                </div >
+
+                </div > 
               
         </div>
       

@@ -1,0 +1,180 @@
+.task-div
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 14px 18px 16px;
+
+position: static;
+width: 285px;
+height: 82px;
+left: 0px;
+top: 8px;
+
+/* Primary/White */
+
+background: #FFFFFF;
+/* Neutral/Emperor-86 */
+
+border: 1px solid #DCDCDC;
+box-sizing: border-box;
+border-radius: 8px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+}
+.frame1
+{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 8px 6px;
+
+position: static;
+width: 94.15px;
+height: 22px;
+left: 18px;
+top: 44px;
+
+background: rgba(211, 75, 87, 0.15);
+border-radius: 8px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 10px 0px;
+}
+.frame2
+{
+    /* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+left: 6.32%;
+right: 6.32%;
+top: 17.07%;
+bottom: 58.54%;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+}
+.frame1p
+{
+    position: static;
+left: 25.65%;
+right: 8.5%;
+top: 18.18%;
+bottom: 27.27%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 12px;
+
+/* Functional/Valencia */
+
+color: #D34B57;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 4px;
+}
+.frame1alert
+{
+        position: static;
+    left: 8.5%;
+    right: 78.6%;
+    top: 18.18%;
+    bottom: 27.27%;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 4px;
+}
+.frame2p
+{
+    
+position: static;
+width: 62px;
+height: 20px;
+left: 187px;
+top: 0px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+
+/* Neutral/Emperor-16 */
+
+color: #282828;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 10px;
+}
+.frame2p1
+{
+    
+position: static;
+left: 0%;
+right: 43.78%;
+top: 0%;
+bottom: 0%;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+
+/* Neutral/Emperor-16 */
+
+color: #282828;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 10px;
+}
